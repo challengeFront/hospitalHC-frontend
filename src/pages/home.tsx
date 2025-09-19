@@ -135,7 +135,7 @@ function Home({ setPage }: HomeProps) {
 
           {/* Linha 3 - único */}
           <button
-            onClick={() => alert("Plano de saúde ainda não ligado")}
+            onClick={() => setPage(11)}
             className="bg-white shadow-lg rounded-2xl px-10 py-8 text-center hover:shadow-xl border-4 border-[#CDE6E7] w-1/2"
           >
             <div className="text-6xl mb-3">💊</div>
