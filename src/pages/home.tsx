@@ -123,7 +123,7 @@ function Home({ setPage }: HomeProps) {
             </button>
 
             <button
-              onClick={() => alert("Resultados ainda não ligados")}
+              onClick={() => setPage(13)}
               className="bg-white shadow-lg rounded-2xl px-10 py-8 text-center hover:shadow-xl border-4 border-[#CDE6E7]"
             >
               <div className="text-6xl mb-3">📑</div>
