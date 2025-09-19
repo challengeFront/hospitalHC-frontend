@@ -23,9 +23,15 @@ function Home({ setPage }: HomeProps) {
           <button className="bg-[#0C6E6A] py-2 rounded text-center">
             PÁGINA INICIAL
           </button>
-          <button className="hover:bg-[#0C6E6A] py-2 rounded text-center">
+
+          {/* PERFIL - ligado ao setPage(6) */}
+          <button
+            onClick={() => setPage(6)}
+            className="hover:bg-[#0C6E6A] py-2 rounded text-center"
+          >
             PERFIL
           </button>
+
           <button className="hover:bg-[#0C6E6A] py-2 rounded text-center">
             FAQ
           </button>
@@ -67,7 +73,10 @@ function Home({ setPage }: HomeProps) {
           {/* Botões direita */}
           <div className="flex items-center gap-6 font-semibold">
             <button>🚶 Modo Idoso</button>
-            <button>👤 Perfil</button>
+
+            {/* PERFIL - agora funcionando */}
+            <button onClick={() => setPage(6)}>👤 Perfil</button>
+
             <button onClick={() => setPage(1)}>🚪 Sair</button>
           </div>
         </header>
@@ -80,14 +89,14 @@ function Home({ setPage }: HomeProps) {
               onClick={() => alert("Informações ainda não ligadas")}
               className="bg-white shadow-lg rounded-2xl px-10 py-8 text-center hover:shadow-xl border-4 border-[#CDE6E7]"
             >
-              <div className="text-6xl mb-3">ℹ️</div>
+              <div className="text-6xl mb-3">ℹ</div>
               <span className="font-bold text-[#0F8E89] text-lg">
                 Informações
               </span>
             </button>
 
             <button
-              onClick={() => setPage(5)} // 🔗 vai para página Endereço
+              onClick={() => setPage(5)} // Endereço
               className="bg-white shadow-lg rounded-2xl px-10 py-8 text-center hover:shadow-xl border-4 border-[#CDE6E7]"
             >
               <div className="text-6xl mb-3">📍</div>
@@ -96,7 +105,7 @@ function Home({ setPage }: HomeProps) {
 
             {/* Linha 2 */}
             <button
-              onClick={() => setPage(4)}
+              onClick={() => setPage(4)} // Chat
               className="bg-white shadow-lg rounded-2xl px-10 py-8 text-center hover:shadow-xl border-4 border-[#CDE6E7]"
             >
               <div className="text-6xl mb-3">💬</div>
