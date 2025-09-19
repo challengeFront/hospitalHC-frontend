@@ -9,6 +9,7 @@ import Perfil from "./pages/perfil";
 import Faq from "./pages/faq";
 import Teleconsulta from "./pages/teleconsulta";
 import Agendamento from "./pages/agendamento";
+import Integrantes from "./pages/integrantes";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       {page === 7 && <Faq setPage={setPage} />}
       {page === 8 && <Teleconsulta setPage={setPage} />}
       {page === 9 && <Agendamento setPage={setPage} />}
+      {page === 10 && <Integrantes setPage={setPage} />}
     </div>
   );
 }

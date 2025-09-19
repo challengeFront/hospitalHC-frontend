@@ -57,7 +57,9 @@ function Home({ setPage }: HomeProps) {
           <button className="bg-[#0C6E6A] py-2 rounded w-full flex items-center justify-center gap-2">
             🎤 Assistente de voz
           </button>
-          <button className="bg-[#0C6E6A] py-2 rounded w-full flex items-center justify-center gap-2">
+          <button 
+          onClick={() => setPage(10)}
+          className="bg-[#0C6E6A] py-2 rounded w-full flex items-center justify-center gap-2">
             👥 Integrantes
           </button>
         </div>
