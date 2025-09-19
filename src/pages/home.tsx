@@ -32,7 +32,9 @@ function Home({ setPage }: HomeProps) {
             PERFIL
           </button>
 
-          <button className="hover:bg-[#0C6E6A] py-2 rounded text-center">
+          <button 
+          onClick={() => setPage(7)}
+          className="hover:bg-[#0C6E6A] py-2 rounded text-center">
             FAQ
           </button>
           <button className="hover:bg-[#0C6E6A] py-2 rounded text-center">
@@ -41,7 +43,9 @@ function Home({ setPage }: HomeProps) {
           <button className="hover:bg-[#0C6E6A] py-2 rounded text-center">
             AGENDAMENTO
           </button>
-          <button className="hover:bg-[#0C6E6A] py-2 rounded text-center">
+          <button 
+          onClick={() => setPage(8)}
+          className="hover:bg-[#0C6E6A] py-2 rounded text-center">
             TELECONSULTA
           </button>
         </nav>
