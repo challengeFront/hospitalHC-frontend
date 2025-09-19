@@ -94,7 +94,7 @@ function Home({ setPage }: HomeProps) {
           <div className="grid grid-cols-2 gap-8">
             {/* Linha 1 */}
             <button
-              onClick={() => alert("Informações ainda não ligadas")}
+              onClick={() => setPage(12)}
               className="bg-white shadow-lg rounded-2xl px-10 py-8 text-center hover:shadow-xl border-4 border-[#CDE6E7]"
             >
               <div className="text-6xl mb-3">ℹ</div>

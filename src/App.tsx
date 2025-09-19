@@ -11,6 +11,7 @@ import Teleconsulta from "./pages/teleconsulta";
 import Agendamento from "./pages/agendamento";
 import Integrantes from "./pages/integrantes";
 import Plano from "./pages/plano";
+import Informacoes from "./pages/informações";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
       {page === 9 && <Agendamento setPage={setPage} />}
       {page === 10 && <Integrantes setPage={setPage} />}
       {page === 11 && <Plano setPage={setPage} />}
+      {page === 12 && <Informacoes setPage={setPage} />}
     </div>
   );
 }
