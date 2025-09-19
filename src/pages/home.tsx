@@ -40,7 +40,9 @@ function Home({ setPage }: HomeProps) {
           <button className="hover:bg-[#0C6E6A] py-2 rounded text-center">
             CONTATO
           </button>
-          <button className="hover:bg-[#0C6E6A] py-2 rounded text-center">
+          <button 
+          onClick={() => setPage(9)}
+          className="hover:bg-[#0C6E6A] py-2 rounded text-center">
             AGENDAMENTO
           </button>
           <button 

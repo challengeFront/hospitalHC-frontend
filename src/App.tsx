@@ -8,6 +8,7 @@ import Endereco from "./pages/endereco";
 import Perfil from "./pages/perfil";
 import Faq from "./pages/faq";
 import Teleconsulta from "./pages/teleconsulta";
+import Agendamento from "./pages/agendamento";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       {page === 6 && <Perfil setPage={setPage} />}
       {page === 7 && <Faq setPage={setPage} />}
       {page === 8 && <Teleconsulta setPage={setPage} />}
+      {page === 9 && <Agendamento setPage={setPage} />}
     </div>
   );
 }
