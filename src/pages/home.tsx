@@ -4,79 +4,80 @@ interface HomeProps {
 
 function Home({ setPage }: HomeProps) {
   return (
-    <div className="min-h-screen flex">
-      {/* Menu lateral */}
+    <div className="min-h-screen flex bg-white">
+      {/* MENU LATERAL */}
       <aside className="w-64 bg-[#004A80] text-white flex flex-col items-center py-6">
-        {/* Logo */}
-        <div className="mb-6">
-          <img
-            src="/NOVO-LOGO-HC.png"
-            alt="Hospital das Clínicas"
-            className="h-32 mx-auto"
-          />
+          <div className="flex items-center gap-3">
+          <img src="/NOVO-LOGO-HC.png" alt="Logo HC" className="h-30" />
         </div>
 
-        {/* Menu */}
-        <nav className="flex flex-col w-full font-semibold text-lg">
-          <button className="bg-[#0F8E89] py-3 text-left px-6">PÁGINA INICIAL</button>
-          <button onClick={() => setPage(6)} className="hover:bg-[#0F8E89] py-3 text-left px-6">
+        <nav className="flex flex-col gap-4 w-full text-center font-semibold text-lg">
+          <button className="bg-[#0F8E89] py-2">
+            
+          PÁGINA INICIAL
+
+          </button>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(6)}>
             PERFIL
           </button>
-          <button onClick={() => setPage(7)} className="hover:bg-[#0F8E89] py-3 text-left px-6">
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(7)}>
             FAQ
           </button>
-          <button className="hover:bg-[#0F8E89] py-3 text-left px-6">CONTATO</button>
-          <button onClick={() => setPage(9)} className="hover:bg-[#0F8E89] py-3 text-left px-6">
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(14)}>
+            CONTATO
+          </button>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(9)}>
             AGENDAMENTO
           </button>
-          <button onClick={() => setPage(8)} className="hover:bg-[#0F8E89] py-3 text-left px-6">
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(8)}>
             TELECONSULTA
           </button>
+        
         </nav>
 
-        {/* Extras */}
-        <div className="mt-auto w-full space-y-4 px-6">
-          <button className="flex items-center gap-2 py-3">
-            <span className="text-2xl">🎤</span> Assistente de voz
+        <div className="mt-10 flex flex-col gap-6 items-center">
+          <button className="flex flex-col items-center">
+            <span className="text-3xl">🎤</span>
+            <span className="text-sm">Assistente de voz</span>
           </button>
-          <button onClick={() => setPage(10)} className="flex items-center gap-2 py-3">
-            <span className="text-2xl">👥</span> Integrantes
+          <button className="flex flex-col items-center" onClick={() => setPage(10)}>
+            <span className="text-3xl">👥</span>
+            <span className="text-sm" >Integrantes</span>
           </button>
         </div>
       </aside>
 
-      {/* Conteúdo principal */}
-      <div className="flex-1 flex flex-col bg-white">
-        {/* Barra superior */}
-        <header className="flex justify-between items-center px-6 py-4">
-          {/* Barra de pesquisa */}
-          <div className="flex items-center w-1/2">
+      {/* CONTEÚDO PRINCIPAL */}
+      <main className="flex-1 bg-[#F6FAFB] p-6">
+        {/* Barra superior com pesquisa */}
+        <header className="flex justify-between items-center gap-6 mb-6 px-6 py-4 border-b bg-white">
+          <div className="flex items-center border border-gray-300 rounded-full px-4 py-2 bg-white flex-1 max-w-lg">
             <input
               type="text"
-              placeholder="Buscar..."
-              className="w-full border-2 border-[#0F8E89] rounded-full px-4 py-2 focus:outline-none"
+              placeholder="Pesquisar no sistema..."
+              className="flex-1 outline-none text-gray-700"
             />
+            <span className="text-gray-500">🔍</span>
           </div>
 
-          {/* Botões da direita */}
-          <div className="flex items-center gap-8 font-semibold text-black">
-            <button className="flex flex-col items-center">
-              <span className="text-3xl">🚶</span>
-              <span className="text-sm">Modo Idoso</span>
+          <div className="flex gap-8">
+            <button className="text-center">
+              <div className="text-3xl">🧓</div>
+              <p className="text-sm">Modo Idoso</p>
             </button>
-            <button onClick={() => setPage(6)} className="flex flex-col items-center">
-              <span className="text-3xl">👤</span>
-              <span className="text-sm">Perfil</span>
+            <button onClick={() => setPage(6)} className="text-center">
+              <div className="text-3xl">👤</div>
+              <p className="text-sm">Perfil</p>
             </button>
-            <button onClick={() => setPage(1)} className="flex flex-col items-center">
-              <span className="text-3xl">🚪</span>
-              <span className="text-sm">Sair</span>
+            <button onClick={() => setPage(1)} className="text-center">
+              <div className="text-3xl">🚪</div>
+              <p className="text-sm">Sair</p>
             </button>
           </div>
         </header>
 
-        {/* Área central */}
-        <main className="flex-1 flex flex-col items-center justify-center p-10 gap-8">
+        {/* Botões principais da Home */}
+        <section className="flex flex-col items-center justify-center p-10 gap-8">
           <div className="grid grid-cols-2 gap-10">
             {/* Linha 1 */}
             <button
@@ -84,7 +85,9 @@ function Home({ setPage }: HomeProps) {
               className="bg-white shadow-md rounded-2xl px-10 py-8 text-center hover:shadow-xl border-4 border-[#CDE6E7] w-60 h-44 flex flex-col justify-center"
             >
               <div className="text-5xl mb-2">ℹ️</div>
-              <span className="font-bold text-[#0F8E89] text-lg">Informações</span>
+              <span className="font-bold text-[#0F8E89] text-lg">
+                Informações
+              </span>
             </button>
 
             <button
@@ -101,7 +104,9 @@ function Home({ setPage }: HomeProps) {
               className="bg-white shadow-md rounded-2xl px-10 py-8 text-center hover:shadow-xl border-4 border-[#CDE6E7] w-60 h-44 flex flex-col justify-center"
             >
               <div className="text-5xl mb-2">💬</div>
-              <span className="font-bold text-[#0F8E89] text-lg">Assistente pessoal</span>
+              <span className="font-bold text-[#0F8E89] text-lg">
+                Assistente pessoal
+              </span>
             </button>
 
             <button
@@ -109,7 +114,9 @@ function Home({ setPage }: HomeProps) {
               className="bg-white shadow-md rounded-2xl px-10 py-8 text-center hover:shadow-xl border-4 border-[#CDE6E7] w-60 h-44 flex flex-col justify-center"
             >
               <div className="text-5xl mb-2">📑</div>
-              <span className="font-bold text-[#0F8E89] text-lg">Resultados de exames</span>
+              <span className="font-bold text-[#0F8E89] text-lg">
+                Resultados de exames
+              </span>
             </button>
           </div>
 
@@ -119,14 +126,17 @@ function Home({ setPage }: HomeProps) {
             className="bg-white shadow-md rounded-2xl px-10 py-8 text-center hover:shadow-xl border-4 border-[#CDE6E7] w-60 h-44 flex flex-col justify-center"
           >
             <div className="text-5xl mb-2">💊</div>
-            <span className="font-bold text-[#0F8E89] text-lg">Plano de saúde</span>
+            <span className="font-bold text-[#0F8E89] text-lg">
+              Plano de saúde
+            </span>
           </button>
-        </main>
-      </div>
+        </section>
+      </main>
     </div>
   );
 }
 
 export default Home;
+
 
 

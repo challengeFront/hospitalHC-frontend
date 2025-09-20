@@ -18,7 +18,7 @@ function Cadastro({ setPage }: CadastroProps) {
         <nav className="flex gap-5 text-lg md:text-xl font-semibold">
           <button className="hover:text-blue-700">🧓 Modo Idoso</button>
           <button className="hover:text-blue-700">🎤 Assistente de voz</button>
-          <button className="hover:text-blue-700">👥 Integrantes</button>
+          <button className="hover:text-blue-700" onClick={() => setPage(10)}>👥 Integrantes</button>
         </nav>
       </header>
 

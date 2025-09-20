@@ -4,63 +4,78 @@ interface ChatProps {
 
 function Chat({ setPage }: ChatProps) {
   return (
-    <div className="min-h-screen flex">
-      {/* Menu lateral */}
-      <aside className="w-64 bg-[#0F8E89] text-white flex flex-col items-center py-6">
-        {/* Logo */}
-        <div className="mb-6">
-          <img
-            src="/NOVO-LOGO-HC.png"
-            alt="Hospital das Clínicas"
-            className="h-32 mx-auto"
-          />
+    <div className="min-h-screen flex bg-white">
+      {/* MENU LATERAL */}
+      <aside className="w-64 bg-[#004A80] text-white flex flex-col items-center py-6">
+           <div className="flex items-center gap-3">
+          <img src="/NOVO-LOGO-HC.png" alt="Logo HC" className="h-30" />
         </div>
 
-        {/* Menu */}
-        <nav className="flex flex-col w-full px-4 space-y-2 font-semibold">
-          <button onClick={() => setPage(3)} className="hover:bg-[#0C6E6A] py-2 rounded text-center">
+        {/* Navegação */}
+        <nav className="flex flex-col gap-4 w-full text-center font-semibold text-lg">
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(3)}>
             PÁGINA INICIAL
           </button>
-          <button className="hover:bg-[#0C6E6A] py-2 rounded text-center">PERFIL</button>
-          <button className="hover:bg-[#0C6E6A] py-2 rounded text-center">FAQ</button>
-          <button className="bg-[#0C6E6A] py-2 rounded text-center">CONTATO</button>
-          <button className="hover:bg-[#0C6E6A] py-2 rounded text-center">AGENDAMENTO</button>
-          <button className="hover:bg-[#0C6E6A] py-2 rounded text-center">TELECONSULTA</button>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(6)}>
+            PERFIL
+          </button>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(7)}>
+            FAQ
+          </button>
+          <button className="bg-[#0F8E89] py-2" onClick={() => setPage(14)}>
+            CONTATO
+          </button>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(9)}>
+            AGENDAMENTO
+          </button>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(8)}>
+            TELECONSULTA
+          </button>
         </nav>
 
         {/* Extras */}
-        <div className="mt-auto w-full px-4 space-y-2">
-          <button className="bg-[#0C6E6A] py-2 rounded w-full flex items-center justify-center gap-2">
-            🎤 Assistente de voz
+        <div className="mt-10 flex flex-col gap-6 items-center">
+          <button className="flex flex-col items-center">
+            <span className="text-3xl">🎤</span>
+            <span className="text-sm">Assistente de voz</span>
           </button>
-          <button className="bg-[#0C6E6A] py-2 rounded w-full flex items-center justify-center gap-2">
-            👥 Integrantes
+          <button className="flex flex-col items-center" onClick={() => setPage(10)}>
+            <span className="text-3xl">👥</span>
+            <span className="text-sm">Integrantes</span>
           </button>
         </div>
       </aside>
 
-      {/* Conteúdo principal */}
+      {/* CONTEÚDO */}
       <div className="flex-1 flex flex-col">
-        {/* Barra superior */}
-        <header className="flex justify-between items-center px-6 py-4 border-b">
-          {/* Barra de pesquisa */}
-          <div className="flex items-center w-1/2">
+        {/* Barra superior com pesquisa */}
+        <header className="flex justify-between items-center gap-6 mb-6 px-6 py-4 border-b bg-white">
+          <div className="flex items-center border border-gray-300 rounded-full px-4 py-2 bg-white flex-1 max-w-lg">
             <input
               type="text"
-              placeholder="Buscar..."
-              className="w-full border border-[#0F8E89] rounded-full px-4 py-2 focus:outline-none"
+              placeholder="Pesquisar no sistema..."
+              className="flex-1 outline-none text-gray-700"
             />
+            <span className="text-gray-500">🔍</span>
           </div>
 
-          {/* Botões direita */}
-          <div className="flex items-center gap-6 font-semibold">
-            <button>🚶 Modo Idoso</button>
-            <button>👤 Perfil</button>
-            <button onClick={() => setPage(3)}>🚪 Sair</button>
+          <div className="flex gap-8">
+            <button className="text-center">
+              <div className="text-3xl">🧓</div>
+              <p className="text-sm">Modo Idoso</p>
+            </button>
+            <button className="text-center" onClick={() => setPage(6)}>
+              <div className="text-3xl">👤</div>
+              <p className="text-sm">Perfil</p>
+            </button>
+            <button onClick={() => setPage(1)} className="text-center">
+              <div className="text-3xl">🚪</div>
+              <p className="text-sm">Sair</p>
+            </button>
           </div>
         </header>
 
-        {/* Chat */}
+        {/* Área de Chat */}
         <main className="flex-1 p-6 flex flex-col space-y-4 overflow-y-auto">
           {/* Mensagem do assistente */}
           <div className="flex items-start">
@@ -141,3 +156,4 @@ function Chat({ setPage }: ChatProps) {
 }
 
 export default Chat;
+

@@ -13,6 +13,7 @@ import Integrantes from "./pages/integrantes";
 import Plano from "./pages/plano";
 import Informacoes from "./pages/informações";
 import ResultadosExames from "./pages/exames";
+import Contato from "./pages/contato";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
       {page === 11 && <Plano setPage={setPage} />}
       {page === 12 && <Informacoes setPage={setPage} />}
       {page === 13 && <ResultadosExames setPage={setPage} />}
+      {page === 14 && <Contato setPage={setPage} />}
     </div>
   );
 }

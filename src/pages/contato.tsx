@@ -1,14 +1,8 @@
-interface IntegrantesProps {
+interface ContatoProps {
   setPage: (page: number) => void;
 }
 
-function Integrantes({ setPage }: IntegrantesProps) {
-  const integrantes = [
-    { nome: "Julia Queiroz de Oliveira", rm: "561583", sala: "1TDSPI" },
-    { nome: "Maria Luiza Alves de Aquino", rm: "561802", sala: "1TDSPI" },
-    { nome: "Juliana da Silva Stigliani", rm: "561171", sala: "1TDSPJ" },
-  ];
-
+function Contato({ setPage }: ContatoProps) {
   return (
     <div className="min-h-screen flex bg-white">
       {/* MENU LATERAL */}
@@ -18,7 +12,7 @@ function Integrantes({ setPage }: IntegrantesProps) {
         </div>
 
         <nav className="flex flex-col gap-4 w-full text-center font-semibold text-lg">
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(3)}>
+         <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(3)}>
             PÁGINA INICIAL
           </button>
           <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(6)}>
@@ -43,9 +37,9 @@ function Integrantes({ setPage }: IntegrantesProps) {
             <span className="text-3xl">🎤</span>
             <span className="text-sm">Assistente de voz</span>
           </button>
-          <button className="flex flex-col items-center">
+          <button className="flex flex-col items-center" onClick={() => setPage(10)}>
             <span className="text-3xl">👥</span>
-            <span className="text-sm">Integrantes</span>
+            <span className="text-sm" onClick={() => setPage(10)}>Integrantes</span>
           </button>
         </div>
       </aside>
@@ -79,27 +73,68 @@ function Integrantes({ setPage }: IntegrantesProps) {
           </div>
         </header>
 
-        {/* Lista de Integrantes */}
-        <section className="p-6">
-          <h1 className="text-2xl font-bold mb-6 text-[#004A80]">
-            Integrantes
-          </h1>
+        {/* Formulário de contato */}
+        <section className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-6 border border-gray-200">
+          <div className="flex flex-col items-center mb-6">
+            <span className="text-5xl">📞</span>
+            <h1 className="text-2xl font-bold mt-2 text-[#004A80]">Contato</h1>
+          </div>
 
-          <ul className="space-y-3 text-lg">
-            {integrantes.map((pessoa, i) => (
-              <li key={i} className="flex justify-between max-w-2xl">
-                <span className="font-semibold">{pessoa.nome}</span>
-                <span className="text-gray-700">RM {pessoa.rm}</span>
-                <span className="text-gray-600 italic">{pessoa.sala}</span>
-              </li>
-            ))}
-          </ul>
+          <form className="space-y-4">
+            <div>
+              <label className="block font-semibold mb-1">Nome</label>
+              <input
+                type="text"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 outline-none"
+                placeholder="Digite seu nome"
+              />
+            </div>
+
+            <div>
+              <label className="block font-semibold mb-1">E-mail</label>
+              <input
+                type="email"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 outline-none"
+                placeholder="Digite seu e-mail"
+              />
+            </div>
+
+            <div>
+              <label className="block font-semibold mb-1">Telefone</label>
+              <input
+                type="tel"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 outline-none"
+                placeholder="(11) 99999-9999"
+              />
+            </div>
+
+            <div>
+              <label className="block font-semibold mb-1">Mensagem</label>
+              <textarea
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 outline-none"
+                rows={4}
+                placeholder="Escreva sua mensagem..."
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="bg-[#0F8E89] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#0c6e6a] transition"
+            >
+              Enviar mensagem
+            </button>
+          </form>
+
+          {/* Informações extras */}
+          <div className="mt-6 text-center text-gray-700">
+            <p><b>Telefone:</b> (11) 4002-8922</p>
+            <p><b>E-mail:</b> contato@hc.com.br</p>
+            <p><b>Endereço:</b> Av. Paulista, 1234 - São Paulo/SP</p>
+          </div>
         </section>
       </main>
     </div>
   );
 }
 
-export default Integrantes;
-
-
+export default Contato;

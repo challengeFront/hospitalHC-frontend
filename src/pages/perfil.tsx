@@ -1,5 +1,6 @@
 type PerfilProps = {
   setPage: (page: number) => void;
+  page: number;
 };
 
 function Perfil({ setPage }: PerfilProps) {
@@ -18,24 +19,28 @@ function Perfil({ setPage }: PerfilProps) {
     <div className="min-h-screen flex bg-white">
       {/* MENU LATERAL */}
       <aside className="w-64 bg-[#004A80] text-white flex flex-col items-center py-6">
-        <img src="/NOVO-LOGO-HC.png" alt="Logo HC" className="h-28 mb-6" />
+           <div className="flex items-center gap-3">
+          <img src="/NOVO-LOGO-HC.png" alt="Logo HC" className="h-30" />
+        </div>
 
         <nav className="flex flex-col gap-4 w-full text-center font-semibold text-lg">
-          <button className="bg-[#0F8E89] py-2">PERFIL</button>
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(3)}>
-            FAQ
-          </button>
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(5)}>
-            CONTATO
+         <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(3)}>
+            PÁGINA INICIAL
           </button>
           <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(6)}>
-            AGENDAMENTO
+            PERFIL
           </button>
           <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(7)}>
-            TELECONSULTA
+            FAQ
+          </button>
+          <button className="bg-[#0F8E89] py-2" onClick={() => setPage(14)}>
+            CONTATO
           </button>
           <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(9)}>
-            INTEGRANTES
+            AGENDAMENTO
+          </button>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(8)}>
+            TELECONSULTA
           </button>
         </nav>
 
@@ -44,9 +49,9 @@ function Perfil({ setPage }: PerfilProps) {
             <span className="text-3xl">🎤</span>
             <span className="text-sm">Assistente de voz</span>
           </button>
-          <button className="flex flex-col items-center">
+          <button className="flex flex-col items-center" onClick={() => setPage(10)}>
             <span className="text-3xl">👥</span>
-            <span className="text-sm">Integrantes</span>
+            <span className="text-sm"  >Integrantes</span>
           </button>
         </div>
       </aside>
@@ -73,7 +78,7 @@ function Perfil({ setPage }: PerfilProps) {
             </button>
             <button className="text-center">
               <div className="text-3xl">👤</div>
-              <p className="text-sm">Perfil</p>
+              <p className="text-sm" onClick={() => setPage(6)}>Perfil</p>
             </button>
             <button onClick={() => setPage(1)} className="text-center">
               <div className="text-3xl">🚪</div>
