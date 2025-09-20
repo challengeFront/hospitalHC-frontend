@@ -1,36 +1,38 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-interface ResultadosExamesProps {
-  setPage: (page: number) => void;
-}
-
-function ResultadosExames({ setPage }: ResultadosExamesProps) {
+function ResultadosExames() {
   const [exames, setExames] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // simulação de chamada de API com delay
     setTimeout(() => {
       setExames([
         {
+          id: 1,
           data: "05/06/2025",
           tipo: "Hemograma Completo",
           medico: "Dr. João Martins",
           status: "Disponível",
         },
         {
+          id: 2,
           data: "20/05/2025",
           tipo: "Ressonância Magnética",
           medico: "Dra. Paula Ribeiro",
           status: "Em análise",
         },
         {
+          id: 3,
           data: "12/05/2025",
           tipo: "Raio-X Tórax",
           medico: "Dr. Carlos Mendes",
           status: "Disponível",
         },
         {
+          id: 4,
           data: "28/04/2025",
           tipo: "Ultrassom Abdominal",
           medico: "Dra. Ana Souza",
@@ -50,22 +52,22 @@ function ResultadosExames({ setPage }: ResultadosExamesProps) {
         </div>
 
         <nav className="flex flex-col gap-4 w-full text-center font-semibold text-lg">
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(3)}>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => navigate("/home")}>
             PÁGINA INICIAL
           </button>
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(6)}>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => navigate("/perfil")}>
             PERFIL
           </button>
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(7)}>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => navigate("/faq")}>
             FAQ
           </button>
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(14)}>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => navigate("/contato")}>
             CONTATO
           </button>
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(9)}>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => navigate("/agendamento")}>
             AGENDAMENTO
           </button>
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(8)}>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => navigate("/teleconsulta")}>
             TELECONSULTA
           </button>
         </nav>
@@ -75,7 +77,7 @@ function ResultadosExames({ setPage }: ResultadosExamesProps) {
             <span className="text-3xl">🎤</span>
             <span className="text-sm">Assistente de voz</span>
           </button>
-          <button className="flex flex-col items-center" onClick={() => setPage(10)}>
+          <button className="flex flex-col items-center" onClick={() => navigate("/integrantes")}>
             <span className="text-3xl">👥</span>
             <span className="text-sm">Integrantes</span>
           </button>
@@ -100,11 +102,11 @@ function ResultadosExames({ setPage }: ResultadosExamesProps) {
               <div className="text-3xl">🧓</div>
               <p className="text-sm">Modo Idoso</p>
             </button>
-            <button className="text-center" onClick={() => setPage(6)}>
+            <button className="text-center" onClick={() => navigate("/perfil")}>
               <div className="text-3xl">👤</div>
               <p className="text-sm">Perfil</p>
             </button>
-            <button onClick={() => setPage(1)} className="text-center">
+            <button onClick={() => navigate("/")} className="text-center">
               <div className="text-3xl">🚪</div>
               <p className="text-sm">Sair</p>
             </button>
@@ -154,6 +156,7 @@ function ResultadosExames({ setPage }: ResultadosExamesProps) {
                       <td className="py-3 px-4">
                         <button
                           disabled={exame.status !== "Disponível"}
+                          onClick={() => navigate(`/exames/${exame.id}`)}
                           className={`px-4 py-2 rounded-full font-medium ${
                             exame.status === "Disponível"
                               ? "bg-[#0F8E89] text-white hover:bg-[#0c6e6a]"
@@ -176,4 +179,5 @@ function ResultadosExames({ setPage }: ResultadosExamesProps) {
 }
 
 export default ResultadosExames;
+
 

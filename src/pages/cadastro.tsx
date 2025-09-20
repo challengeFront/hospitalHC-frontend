@@ -1,15 +1,14 @@
-interface CadastroProps {
-  setPage: (page: number) => void;
-}
+import { useNavigate } from "react-router-dom";
 
-function Cadastro({ setPage }: CadastroProps) {
+function Cadastro() {
   const aqua = "#0F8E89"; // cor verde-água do Figma
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-[#CDE6E7] flex flex-col">
       {/* Barra superior */}
       <header className="flex items-center justify-between px-3 py-4">
-        {/* Logo + nome */}
+        {/* Logo */}
         <div className="flex items-center gap-3">
           <img src="/NOVO-LOGO-HC.png" alt="Logo HC" className="h-30" />
         </div>
@@ -18,7 +17,12 @@ function Cadastro({ setPage }: CadastroProps) {
         <nav className="flex gap-5 text-lg md:text-xl font-semibold">
           <button className="hover:text-blue-700">🧓 Modo Idoso</button>
           <button className="hover:text-blue-700">🎤 Assistente de voz</button>
-          <button className="hover:text-blue-700" onClick={() => setPage(10)}>👥 Integrantes</button>
+          <button
+            className="hover:text-blue-700"
+            onClick={() => navigate("/integrantes")}
+          >
+            👥 Integrantes
+          </button>
         </nav>
       </header>
 
@@ -40,7 +44,7 @@ function Cadastro({ setPage }: CadastroProps) {
         </div>
       </section>
 
-      {/* Card de cadastro (mais largo) */}
+      {/* Card de cadastro */}
       <main className="flex flex-1 items-start justify-center">
         <div
           className="mt-6 bg-white rounded-2xl shadow-lg w-full
@@ -90,7 +94,7 @@ function Cadastro({ setPage }: CadastroProps) {
 
           {/* Botão */}
           <button
-            onClick={() => setPage(3)}
+            onClick={() => navigate("/home")}
             className="w-full bg-[#0F8E89] text-white font-semibold py-3
                        rounded-full hover:bg-[#0c6e6a] transition"
           >
@@ -103,5 +107,6 @@ function Cadastro({ setPage }: CadastroProps) {
 }
 
 export default Cadastro;
+
 
 

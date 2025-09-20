@@ -1,124 +1,104 @@
-interface TeleconsultaProps {
-  setPage: (page: number) => void;
-}
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-function Teleconsulta({ setPage }: TeleconsultaProps) {
-  const consultas = [
+function Teleconsulta() {
+  const navigate = useNavigate();
+
+  // Lista inicial de consultas
+  const [consultas, setConsultas] = useState([
     {
+      id: 1,
       dia: "02/06/2025",
       horario: "08:30",
       medico: "Dra. Maria Aparecida Araujo",
       especialidade: "Clínica geral",
-      
     },
     {
+      id: 2,
       dia: "30/06/2025",
       horario: "10:00",
       medico: "Dra. Linda Fagundes",
       especialidade: "Cardiologista",
-      
     },
-  ];
+  ]);
+
+  // Estado para guardar consultas canceladas
+  const [canceladas, setCanceladas] = useState<number[]>([]);
+
+  // Exemplo de efeito colateral (pode ser usado para salvar no localStorage)
+  useEffect(() => {
+    console.log("Consultas canceladas:", canceladas);
+  }, [canceladas]);
+
+  // Função de cancelamento
+  const cancelarConsulta = (id: number) => {
+    setCanceladas([...canceladas, id]);
+    setConsultas(consultas.filter((c) => c.id !== id));
+  };
 
   return (
     <div className="min-h-screen flex bg-white">
       {/* MENU LATERAL */}
       <aside className="w-64 bg-[#004A80] text-white flex flex-col items-center py-6">
-           <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3">
           <img src="/NOVO-LOGO-HC.png" alt="Logo HC" className="h-30" />
         </div>
-
         <nav className="flex flex-col gap-4 w-full text-center font-semibold text-lg">
-        <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(3)}>
+          <button onClick={() => navigate("/home")} className="hover:bg-[#0F8E89] py-2">
             PÁGINA INICIAL
           </button>
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(6)}>
+          <button onClick={() => navigate("/perfil")} className="hover:bg-[#0F8E89] py-2">
             PERFIL
           </button>
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(7)}>
+          <button onClick={() => navigate("/faq")} className="hover:bg-[#0F8E89] py-2">
             FAQ
           </button>
-          <button className="bg-[#0F8E89] py-2" onClick={() => setPage(14)}>
+          <button onClick={() => navigate("/contato")} className="hover:bg-[#0F8E89] py-2">
             CONTATO
           </button>
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(9)}>
+          <button onClick={() => navigate("/agendamento")} className="hover:bg-[#0F8E89] py-2">
             AGENDAMENTO
           </button>
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(8)}>
+          <button onClick={() => navigate("/teleconsulta")} className="bg-[#0F8E89] py-2">
             TELECONSULTA
           </button>
         </nav>
 
-        <div className="mt-10 flex flex-col gap-6 items-center">
+              <div className="mt-10 flex flex-col gap-6 items-center">
           <button className="flex flex-col items-center">
             <span className="text-3xl">🎤</span>
             <span className="text-sm">Assistente de voz</span>
           </button>
-          <button className="flex flex-col items-center" onClick={() => setPage(10)}>
+          <button className="flex flex-col items-center" onClick={() => navigate("/integrantes")}>
             <span className="text-3xl">👥</span>
-            <span className="text-sm" >Integrantes</span>
+            <span className="text-sm">Integrantes</span>
           </button>
         </div>
       </aside>
 
       {/* CONTEÚDO */}
       <main className="flex-1 bg-[#F6FAFB] p-6">
-        {/* Barra superior com pesquisa */}
         <header className="flex justify-between items-center gap-6 mb-6 px-6 py-4 border-b bg-white">
-          <div className="flex items-center border border-gray-300 rounded-full px-4 py-2 bg-white flex-1 max-w-lg">
-            <input
-              type="text"
-              placeholder="Pesquisar no sistema..."
-              className="flex-1 outline-none text-gray-700"
-            />
-            <span className="text-gray-500">🔍</span>
-          </div>
-
-          <div className="flex gap-8">
-            <button className="text-center">
-              <div className="text-3xl">🧓</div>
-              <p className="text-sm">Modo Idoso</p>
-            </button>
-            <button onClick={() => setPage(6)} className="text-center">
-              <div className="text-3xl">👤</div>
-              <p className="text-sm">Perfil</p>
-            </button>
-            <button onClick={() => setPage(1)} className="text-center">
-              <div className="text-3xl">🚪</div>
-              <p className="text-sm">Sair</p>
-            </button>
-          </div>
+          <h1 className="text-2xl font-bold text-[#004A80]">Teleconsulta</h1>
         </header>
 
-        {/* Teleconsulta */}
         <section>
-          <h1 className="text-2xl font-bold mb-4 text-[#004A80]">
-            Teleconsulta
-          </h1>
           <p className="mb-6 font-medium">Teleconsultas agendadas:</p>
 
-          <div className="space-y-6">
-            {consultas.map((c, i) => (
-              <div
-                key={i}
-                className="bg-gray-100 rounded-xl shadow-md p-4 flex items-center justify-between"
-              >
-                <div>
-                  <p>
-                    <b>Dia:</b> {c.dia}
-                  </p>
-                  <p>
-                    <b>Horário:</b> {c.horario}
-                  </p>
-                  <p>
-                    <b>Médico:</b> {c.medico}
-                  </p>
-                  <p>
-                    <b>Especialidade:</b> {c.especialidade}
-                  </p>
+          {consultas.length > 0 ? (
+            <div className="space-y-6">
+              {consultas.map((c) => (
+                <div key={c.id} className="bg-gray-100 rounded-xl shadow-md p-4">
+                  <p><b>Dia:</b> {c.dia}</p>
+                  <p><b>Horário:</b> {c.horario}</p>
+                  <p><b>Médico:</b> {c.medico}</p>
+                  <p><b>Especialidade:</b> {c.especialidade}</p>
 
                   <div className="flex gap-3 mt-3">
-                    <button className="bg-[#0F8E89] text-white px-4 py-2 rounded-full hover:bg-[#0c6e6a]">
+                    <button
+                      onClick={() => cancelarConsulta(c.id)}
+                      className="bg-[#0F8E89] text-white px-4 py-2 rounded-full hover:bg-[#0c6e6a]"
+                    >
                       Cancelar consulta
                     </button>
                     <button className="bg-gray-500 text-white px-4 py-2 rounded-full cursor-not-allowed">
@@ -126,20 +106,11 @@ function Teleconsulta({ setPage }: TeleconsultaProps) {
                     </button>
                   </div>
                 </div>
-
-                <img
-                  
-                  alt={c.medico}
-                  className="h-24 w-24 object-cover rounded-full border-2 border-gray-300"
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Observação */}
-          <div className="mt-6 bg-black text-white px-4 py-2 rounded-lg inline-block text-sm">
-            A consulta será liberada no dia e horário agendado
-          </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-gray-600">Nenhuma consulta agendada.</p>
+          )}
         </section>
       </main>
     </div>
@@ -147,3 +118,6 @@ function Teleconsulta({ setPage }: TeleconsultaProps) {
 }
 
 export default Teleconsulta;
+''
+
+

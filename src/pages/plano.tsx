@@ -1,8 +1,8 @@
-interface PlanoSaudeProps {
-  setPage: (page: number) => void;
-}
+import { useNavigate } from "react-router-dom";
 
-function PlanoSaude({ setPage }: PlanoSaudeProps) {
+function PlanoSaude() {
+  const navigate = useNavigate();
+
   const dadosPlano = {
     razaoSocial: "Unimed Seguros Saúde S.A.",
     nomePlano: "Unimed Nacional - Especial",
@@ -18,28 +18,31 @@ function PlanoSaude({ setPage }: PlanoSaudeProps) {
     <div className="min-h-screen flex bg-white">
       {/* MENU LATERAL */}
       <aside className="w-64 bg-[#004A80] text-white flex flex-col items-center py-6">
-           <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3">
           <img src="/NOVO-LOGO-HC.png" alt="Logo HC" className="h-30" />
         </div>
 
         <nav className="flex flex-col gap-4 w-full text-center font-semibold text-lg">
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(3)}>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => navigate("/home")}>
             PÁGINA INICIAL
           </button>
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(6)}>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => navigate("/perfil")}>
             PERFIL
           </button>
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(7)}>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => navigate("/faq")}>
             FAQ
           </button>
-          <button className="bg-[#0F8E89] py-2" onClick={() => setPage(14)}>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => navigate("/contato")}>
             CONTATO
           </button>
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(9)}>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => navigate("/agendamento")}>
             AGENDAMENTO
           </button>
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => setPage(8)}>
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => navigate("/teleconsulta")}>
             TELECONSULTA
+          </button>
+          <button className="bg-[#0F8E89] py-2" onClick={() => navigate("/plano")}>
+            PLANO DE SAÚDE
           </button>
         </nav>
 
@@ -48,9 +51,9 @@ function PlanoSaude({ setPage }: PlanoSaudeProps) {
             <span className="text-3xl">🎤</span>
             <span className="text-sm">Assistente de voz</span>
           </button>
-          <button className="flex flex-col items-center" onClick={() => setPage(10)}>
+          <button className="flex flex-col items-center" onClick={() => navigate("/integrantes")}>
             <span className="text-3xl">👥</span>
-            <span className="text-sm" >Integrantes</span>
+            <span className="text-sm">Integrantes</span>
           </button>
         </div>
       </aside>
@@ -73,11 +76,11 @@ function PlanoSaude({ setPage }: PlanoSaudeProps) {
               <div className="text-3xl">🧓</div>
               <p className="text-sm">Modo Idoso</p>
             </button>
-            <button onClick={() => setPage(6)} className="text-center">
+            <button onClick={() => navigate("/perfil")} className="text-center">
               <div className="text-3xl">👤</div>
               <p className="text-sm">Perfil</p>
             </button>
-            <button onClick={() => setPage(1)} className="text-center">
+            <button onClick={() => navigate("/")} className="text-center">
               <div className="text-3xl">🚪</div>
               <p className="text-sm">Sair</p>
             </button>
@@ -94,30 +97,14 @@ function PlanoSaude({ setPage }: PlanoSaudeProps) {
           </div>
 
           <div className="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto space-y-3 border border-gray-200">
-            <p>
-              <b>Razão Social:</b> {dadosPlano.razaoSocial}
-            </p>
-            <p>
-              <b>Plano:</b> {dadosPlano.nomePlano}
-            </p>
-            <p>
-              <b>CNPJ:</b> {dadosPlano.cnpj}
-            </p>
-            <p>
-              <b>Contato:</b> {dadosPlano.contato}
-            </p>
-            <p>
-              <b>Telefone:</b> {dadosPlano.telefone}
-            </p>
-            <p>
-              <b>Início de Vigência:</b> {dadosPlano.inicio}
-            </p>
-            <p>
-              <b>Fim de Vigência:</b> {dadosPlano.fim}
-            </p>
-            <p>
-              <b>Nº da Carteira:</b> {dadosPlano.numeroCarteira}
-            </p>
+            <p><b>Razão Social:</b> {dadosPlano.razaoSocial}</p>
+            <p><b>Plano:</b> {dadosPlano.nomePlano}</p>
+            <p><b>CNPJ:</b> {dadosPlano.cnpj}</p>
+            <p><b>Contato:</b> {dadosPlano.contato}</p>
+            <p><b>Telefone:</b> {dadosPlano.telefone}</p>
+            <p><b>Início de Vigência:</b> {dadosPlano.inicio}</p>
+            <p><b>Fim de Vigência:</b> {dadosPlano.fim}</p>
+            <p><b>Nº da Carteira:</b> {dadosPlano.numeroCarteira}</p>
           </div>
         </section>
       </main>
@@ -126,4 +113,5 @@ function PlanoSaude({ setPage }: PlanoSaudeProps) {
 }
 
 export default PlanoSaude;
+
 

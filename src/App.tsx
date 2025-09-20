@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+// Import das páginas
 import Login from "./pages/login";
 import Cadastro from "./pages/cadastro";
 import Home from "./pages/home";
@@ -14,29 +15,35 @@ import Plano from "./pages/plano";
 import Informacoes from "./pages/informações";
 import ResultadosExames from "./pages/exames";
 import Contato from "./pages/contato";
-
+import DetalheExame from "./pages/detalheExame"; // página com useParams
 
 function App() {
-  const [page, setPage] = useState(1);
-
   return (
-    <div>
-      {page === 1 && <Login setPage={setPage} />}
-      {page === 2 && <Cadastro setPage={setPage} />}
-      {page === 3 && <Home setPage={setPage} />}
-      {page === 4 && <Chat setPage={setPage} />}
-      {page === 5 && <Endereco setPage={setPage} />}
-      {page === 6 && <Perfil setPage={setPage} />}
-      {page === 7 && <Faq setPage={setPage} />}
-      {page === 8 && <Teleconsulta setPage={setPage} />}
-      {page === 9 && <Agendamento setPage={setPage} />}
-      {page === 10 && <Integrantes setPage={setPage} />}
-      {page === 11 && <Plano setPage={setPage} />}
-      {page === 12 && <Informacoes setPage={setPage} />}
-      {page === 13 && <ResultadosExames setPage={setPage} />}
-      {page === 14 && <Contato setPage={setPage} />}
-    </div>
+    <Router>
+      <Routes>
+        {/* Rotas principais */}
+        <Route path="/" element={<Login />} />
+        <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/endereco" element={<Endereco />} />
+        <Route path="/perfil" element={<Perfil />} />
+        <Route path="/faq" element={<Faq />} />
+        <Route path="/teleconsulta" element={<Teleconsulta />} />
+        <Route path="/agendamento" element={<Agendamento />} />
+        <Route path="/integrantes" element={<Integrantes />} />
+        <Route path="/plano" element={<Plano />} />
+        <Route path="/informacoes" element={<Informacoes />} />
+        <Route path="/exames" element={<ResultadosExames />} />
+        <Route path="/contato" element={<Contato />} />
+
+        {/* Rota dinâmica para detalhes de exames */}
+        <Route path="/exames/:id" element={<DetalheExame />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+
+
