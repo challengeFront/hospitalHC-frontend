@@ -4,8 +4,9 @@ interface IntegrantesProps {
 
 function Integrantes({ setPage }: IntegrantesProps) {
   const integrantes = [
-    { nome: "Julia Queiroz de Oliveira", rm: "561583" },
-    { nome: "Maria Luiza Alves de Aquino", rm: "561802" },
+    { nome: "Julia Queiroz de Oliveira", rm: "561583", sala: "1TDSPI" },
+    { nome: "Maria Luiza Alves de Aquino",rm: "561802", sala: "1TDSPI" },
+    { nome: "Juliana da Silva Stigliani", rm: "561171", sala: "1TDSPJ" },
   ];
 
   return (
@@ -76,9 +77,10 @@ function Integrantes({ setPage }: IntegrantesProps) {
 
           <ul className="space-y-3 text-lg">
             {integrantes.map((pessoa, i) => (
-              <li key={i} className="flex justify-between max-w-lg">
+              <li key={i} className="flex justify-between max-w-2xl">
                 <span className="font-semibold">{pessoa.nome}</span>
                 <span className="text-gray-700">RM {pessoa.rm}</span>
+                <span className="text-gray-600 italic">{pessoa.sala}</span>
               </li>
             ))}
           </ul>
@@ -89,3 +91,4 @@ function Integrantes({ setPage }: IntegrantesProps) {
 }
 
 export default Integrantes;
+
