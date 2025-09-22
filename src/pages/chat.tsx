@@ -1,18 +1,24 @@
 import { useNavigate } from "react-router-dom";
+import Voz from "../components/voz";
 
 function Chat() {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen flex bg-white">
-      {/* MENU LATERAL */}
-      <aside className="w-64 bg-[#004A80] text-white flex flex-col items-center py-6">
-        <div className="flex items-center gap-3">
-          <img src="/NOVO-LOGO-HC.png" alt="Logo HC" className="h-30" />
+      {/* MENU LATERAL – mesmo padrão do Agendamento */}
+      <aside
+        className="
+          w-40 sm:w-48 md:w-64 shrink-0
+          bg-[#004A80] text-white flex flex-col items-center py-6
+          sticky top-0 h-screen overflow-y-auto
+        "
+      >
+        <div className="flex items-center gap-3 mb-6">
+          <img src="/NOVO-LOGO-HC.png" alt="Logo HC" className="h-14 sm:h-16 md:h-20" />
         </div>
 
-        {/* Navegação */}
-        <nav className="flex flex-col gap-4 w-full text-center font-semibold text-lg">
+        <nav className="flex flex-col gap-2 w-full text-center font-semibold text-xs sm:text-sm md:text-lg">
           <button className="hover:bg-[#0F8E89] py-2" onClick={() => navigate("/home")}>
             PÁGINA INICIAL
           </button>
@@ -33,50 +39,50 @@ function Chat() {
           </button>
         </nav>
 
-        {/* Extras */}
-        <div className="mt-10 flex flex-col gap-6 items-center">
-          <button className="flex flex-col items-center">
-            <span className="text-3xl">🎤</span>
-            <span className="text-sm">Assistente de voz</span>
-          </button>
+       
+        <div className="mt-8 flex flex-col gap-6 items-center">
+         <div className="mt-10 flex flex-col gap-6 items-center">
+            <Voz />
           <button className="flex flex-col items-center" onClick={() => navigate("/integrantes")}>
             <span className="text-3xl">👥</span>
             <span className="text-sm">Integrantes</span>
           </button>
+          </div>
+       
+          <button className="text-center">
+              <div className="text-2xl md:text-3xl">🧓</div>
+              <p className="text-[11px] sm:text-xs md:text-sm">Modo Idoso</p>
+            </button>
         </div>
       </aside>
 
       {/* CONTEÚDO */}
-      <div className="flex-1 flex flex-col">
+      <main className="flex-1 min-w-0 bg-[#F6FAFB] flex flex-col">
         {/* Barra superior com pesquisa */}
-        <header className="flex justify-between items-center gap-6 mb-6 px-6 py-4 border-b bg-white">
-          <div className="flex items-center border border-gray-300 rounded-full px-4 py-2 bg-white flex-1 max-w-lg">
+        <header className="flex justify-between items-center gap-3 sm:gap-4 mb-6 px-3 sm:px-4 py-3 border-b bg-white rounded">
+          <div className="flex items-center border border-gray-300 rounded-full px-3 sm:px-4 py-2 bg-white w-full max-w-md">
             <input
               type="text"
               placeholder="Pesquisar no sistema..."
-              className="flex-1 outline-none text-gray-700"
+              className="flex-1 outline-none text-gray-700 text-sm md:text-base"
             />
             <span className="text-gray-500">🔍</span>
           </div>
 
-          <div className="flex gap-8">
-            <button className="text-center">
-              <div className="text-3xl">🧓</div>
-              <p className="text-sm">Modo Idoso</p>
-            </button>
-            <button className="text-center" onClick={() => navigate("/perfil")}>
-              <div className="text-3xl">👤</div>
-              <p className="text-sm">Perfil</p>
+          <div className="hidden xs:flex gap-3 sm:gap-6">
+            <button onClick={() => navigate("/perfil")} className="text-center">
+              <div className="text-2xl md:text-3xl">👤</div>
+              <p className="text-[11px] sm:text-xs md:text-sm">Perfil</p>
             </button>
             <button onClick={() => navigate("/")} className="text-center">
-              <div className="text-3xl">🚪</div>
-              <p className="text-sm">Sair</p>
+              <div className="text-2xl md:text-3xl">🚪</div>
+              <p className="text-[11px] sm:text-xs md:text-sm">Sair</p>
             </button>
           </div>
         </header>
 
         {/* Área de Chat */}
-        <main className="flex-1 p-6 flex flex-col space-y-4 overflow-y-auto">
+        <section className="flex-1 p-4 sm:p-6 flex flex-col space-y-4 overflow-y-auto max-w-4xl mx-auto w-full">
           {/* Mensagem do assistente */}
           <div className="flex items-start">
             <div className="bg-[#CDE6E7] px-4 py-2 rounded-lg max-w-xl">
@@ -98,9 +104,7 @@ function Chat() {
           {/* Assistente */}
           <div className="flex items-start">
             <div className="bg-[#CDE6E7] px-4 py-2 rounded-lg max-w-xl">
-              <p>
-                Claro! Com qual especialidade médica você gostaria de marcar a consulta?
-              </p>
+              <p>Claro! Com qual especialidade médica você gostaria de marcar a consulta?</p>
             </div>
           </div>
 
@@ -137,24 +141,26 @@ function Chat() {
               </p>
             </div>
           </div>
-        </main>
+        </section>
 
         {/* Input de mensagem */}
-        <footer className="p-4 border-t flex items-center gap-3">
+        <footer className="p-3 sm:p-4 border-t flex items-center gap-3">
           <input
             type="text"
             placeholder="Digite sua mensagem..."
-            className="flex-1 border rounded-full px-4 py-2 focus:outline-none"
+            className="flex-1 border rounded-full px-3 sm:px-4 py-2 focus:outline-none text-sm md:text-base"
           />
           <button className="bg-[#0F8E89] text-white px-4 py-2 rounded-full hover:bg-[#0c6e6a] transition">
             ➤
           </button>
         </footer>
-      </div>
+      </main>
     </div>
   );
 }
 
 export default Chat;
+
+
 
 

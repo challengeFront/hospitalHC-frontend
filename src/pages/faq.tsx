@@ -40,21 +40,25 @@ function FAQ() {
   return (
     <div className="min-h-screen flex bg-white">
       {/* MENU LATERAL */}
-      <aside className="w-64 bg-[#004A80] text-white flex flex-col items-center py-6">
-        <div className="flex items-center gap-3">
-          <img src="/NOVO-LOGO-HC.png" alt="Logo HC" className="h-30" />
+      <aside
+        className="
+          w-40 sm:w-48 md:w-64 shrink-0
+          bg-[#004A80] text-white flex flex-col items-center py-6
+          sticky top-0 h-screen overflow-y-auto
+        "
+      >
+        <div className="flex items-center gap-3 mb-6">
+          <img src="/NOVO-LOGO-HC.png" alt="Logo HC" className="h-14 sm:h-16 md:h-20" />
         </div>
 
-        <nav className="flex flex-col gap-4 w-full text-center font-semibold text-lg">
-          <button className="hover:bg-[#0F8E89] py-2" onClick={() => navigate("/")}>
+        <nav className="flex flex-col gap-2 w-full text-center font-semibold text-xs sm:text-sm md:text-lg">
+          <button className="hover:bg-[#0F8E89] py-2" onClick={() => navigate("/home")}>
             PÁGINA INICIAL
           </button>
           <button className="hover:bg-[#0F8E89] py-2" onClick={() => navigate("/perfil")}>
             PERFIL
           </button>
-          <button className="bg-[#0F8E89] py-2" onClick={() => navigate("/faq")}>
-            FAQ
-          </button>
+          <button className="bg-[#0F8E89] py-2">FAQ</button>
           <button className="hover:bg-[#0F8E89] py-2" onClick={() => navigate("/contato")}>
             CONTATO
           </button>
@@ -66,50 +70,50 @@ function FAQ() {
           </button>
         </nav>
 
-        <div className="mt-10 flex flex-col gap-6 items-center">
+        <div className="mt-8 flex flex-col gap-6 items-center">
           <button className="flex flex-col items-center">
-            <span className="text-3xl">🎤</span>
-            <span className="text-sm">Assistente de voz</span>
+            <span className="text-2xl md:text-3xl">🎤</span>
+            <span className="text-[11px] sm:text-xs md:text-sm">Assistente de voz</span>
           </button>
           <button className="flex flex-col items-center" onClick={() => navigate("/integrantes")}>
-            <span className="text-3xl">👥</span>
-            <span className="text-sm">Integrantes</span>
+            <span className="text-2xl md:text-3xl">👥</span>
+            <span className="text-[11px] sm:text-xs md:text-sm">Integrantes</span>
+          </button>
+          <button className="text-center">
+            <div className="text-2xl md:text-3xl">🧓</div>
+            <p className="text-[11px] sm:text-xs md:text-sm">Modo Idoso</p>
           </button>
         </div>
       </aside>
 
       {/* CONTEÚDO */}
-      <main className="flex-1 bg-[#F6FAFB] p-6">
+      <main className="flex-1 min-w-0 bg-[#F6FAFB] p-3 sm:p-4 md:p-6 overflow-x-hidden">
         {/* Barra superior com pesquisa */}
-        <header className="flex justify-between items-center gap-6 mb-6 px-6 py-4 border-b bg-white">
-          <div className="flex items-center border border-gray-300 rounded-full px-4 py-2 bg-white flex-1 max-w-lg">
+        <header className="flex justify-between items-center gap-3 sm:gap-4 mb-6 px-3 sm:px-4 py-3 border-b bg-white rounded">
+          <div className="flex items-center border border-gray-300 rounded-full px-3 sm:px-4 py-2 bg-white w-full max-w-md">
             <input
               type="text"
               placeholder="Pesquisar no sistema..."
-              className="flex-1 outline-none text-gray-700"
+              className="flex-1 outline-none text-gray-700 text-sm md:text-base"
             />
             <span className="text-gray-500">🔍</span>
           </div>
 
-          <div className="flex gap-8">
-            <button className="text-center">
-              <div className="text-3xl">🧓</div>
-              <p className="text-sm">Modo Idoso</p>
-            </button>
-            <button className="text-center" onClick={() => navigate("/perfil")}>
-              <div className="text-3xl">👤</div>
-              <p className="text-sm">Perfil</p>
+          <div className="hidden xs:flex gap-3 sm:gap-6">
+            <button onClick={() => navigate("/perfil")} className="text-center">
+              <div className="text-2xl md:text-3xl">👤</div>
+              <p className="text-[11px] sm:text-xs md:text-sm">Perfil</p>
             </button>
             <button onClick={() => navigate("/")} className="text-center">
-              <div className="text-3xl">🚪</div>
-              <p className="text-sm">Sair</p>
+              <div className="text-2xl md:text-3xl">🚪</div>
+              <p className="text-[11px] sm:text-xs md:text-sm">Sair</p>
             </button>
           </div>
         </header>
 
         {/* FAQ */}
-        <section>
-          <h1 className="text-2xl font-bold mb-4 text-[#004A80]">FAQ</h1>
+        <section className="max-w-4xl mx-auto">
+          <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 text-[#004A80]">FAQ</h1>
 
           <div className="space-y-4">
             {faqs.map((item, i) => (
@@ -118,11 +122,11 @@ function FAQ() {
                 className={`rounded-lg p-4 transition cursor-pointer ${
                   open === i
                     ? "bg-[#0F8E89] text-white"
-                    : "bg-white border-b border-gray-300 text-gray-800"
+                    : "bg-white border border-gray-300 text-gray-800"
                 }`}
               >
                 <button
-                  className="flex justify-between w-full font-semibold text-left"
+                  className="flex justify-between w-full font-semibold text-left text-sm sm:text-base"
                   onClick={() => toggle(i)}
                 >
                   {item.q}
@@ -130,7 +134,7 @@ function FAQ() {
                 </button>
                 {open === i && (
                   <p
-                    className={`mt-3 text-sm ${
+                    className={`mt-3 text-sm sm:text-base ${
                       open === i ? "text-white" : "text-gray-700"
                     }`}
                   >
@@ -147,4 +151,5 @@ function FAQ() {
 }
 
 export default FAQ;
+
 

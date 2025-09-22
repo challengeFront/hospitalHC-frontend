@@ -21,12 +21,18 @@ function Perfil() {
   return (
     <div className="min-h-screen flex bg-white">
       {/* MENU LATERAL */}
-      <aside className="w-64 bg-[#004A80] text-white flex flex-col items-center py-6">
-        <div className="flex items-center gap-3">
-          <img src="/NOVO-LOGO-HC.png" alt="Logo HC" className="h-30" />
+      <aside
+        className="
+          w-40 sm:w-48 md:w-64 shrink-0
+          bg-[#004A80] text-white flex flex-col items-center py-6
+          sticky top-0 h-screen overflow-y-auto
+        "
+      >
+        <div className="flex items-center gap-3 mb-6">
+          <img src="/NOVO-LOGO-HC.png" alt="Logo HC" className="h-14 sm:h-16 md:h-20" />
         </div>
 
-        <nav className="flex flex-col gap-4 w-full text-center font-semibold text-lg">
+        <nav className="flex flex-col gap-2 w-full text-center font-semibold text-xs sm:text-sm md:text-lg">
           <button className={`${isActive("/home")} py-2`} onClick={() => navigate("/home")}>
             PÁGINA INICIAL
           </button>
@@ -47,55 +53,56 @@ function Perfil() {
           </button>
         </nav>
 
-        <div className="mt-10 flex flex-col gap-6 items-center">
+        <div className="mt-8 flex flex-col gap-6 items-center">
           <button className="flex flex-col items-center">
-            <span className="text-3xl">🎤</span>
-            <span className="text-sm">Assistente de voz</span>
+            <span className="text-2xl md:text-3xl">🎤</span>
+            <span className="text-[11px] sm:text-xs md:text-sm">Assistente de voz</span>
           </button>
-          <button
-            className="flex flex-col items-center"
-            onClick={() => navigate("/integrantes")}
-          >
-            <span className="text-3xl">👥</span>
-            <span className="text-sm">Integrantes</span>
+          <button onClick={() => navigate("/integrantes")} className="flex flex-col items-center">
+            <span className="text-2xl md:text-3xl">👥</span>
+            <span className="text-[11px] sm:text-xs md:text-sm">Integrantes</span>
           </button>
+           <button className="text-center">
+              <div className="text-2xl md:text-3xl">🧓</div>
+              <p className="text-[11px] sm:text-xs md:text-sm">Modo Idoso</p>
+            </button>
         </div>
       </aside>
 
       {/* CONTEÚDO */}
-      <main className="flex-1 bg-[#F6FAFB] p-6">
+      <main className="flex-1 min-w-0 bg-[#F6FAFB] p-3 sm:p-4 md:p-6 overflow-x-hidden">
         {/* Barra superior com pesquisa */}
-        <header className="flex justify-between items-center gap-6 mb-6">
-          <div className="flex items-center border border-gray-300 rounded-full px-4 py-2 bg-white flex-1 max-w-lg">
+        <header className="flex justify-between items-center gap-3 sm:gap-4 mb-6 px-3 sm:px-4 py-3 border-b bg-white rounded">
+          <div className="flex items-center border border-gray-300 rounded-full px-3 sm:px-4 py-2 bg-white w-full max-w-md">
             <input
               type="text"
               placeholder="Pesquisar no sistema..."
-              className="flex-1 outline-none text-gray-700"
+              className="flex-1 outline-none text-gray-700 text-sm md:text-base"
             />
             <span className="text-gray-500">🔍</span>
           </div>
 
-          <div className="flex gap-8">
+          <div className="hidden xs:flex gap-3 sm:gap-6">
             <button className="text-center">
-              <div className="text-3xl">🧓</div>
-              <p className="text-sm">Modo Idoso</p>
+              <div className="text-2xl md:text-3xl">🧓</div>
+              <p className="text-[11px] sm:text-xs md:text-sm">Modo Idoso</p>
             </button>
-            <button className="text-center" onClick={() => navigate("/perfil")}>
-              <div className="text-3xl">👤</div>
-              <p className="text-sm">Perfil</p>
+            <button onClick={() => navigate("/perfil")} className="text-center">
+              <div className="text-2xl md:text-3xl">👤</div>
+              <p className="text-[11px] sm:text-xs md:text-sm">Perfil</p>
             </button>
             <button onClick={() => navigate("/")} className="text-center">
-              <div className="text-3xl">🚪</div>
-              <p className="text-sm">Sair</p>
+              <div className="text-2xl md:text-3xl">🚪</div>
+              <p className="text-[11px] sm:text-xs md:text-sm">Sair</p>
             </button>
           </div>
         </header>
 
         {/* Perfil */}
-        <section>
-          <h1 className="text-2xl font-bold mb-6 text-[#004A80]">Perfil</h1>
+        <section className="max-w-3xl mx-auto text-center">
+          <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-6 text-[#004A80]">Perfil</h1>
 
-          <div className="bg-[#CDE6E7] rounded-lg p-6 max-w-2xl shadow-md space-y-3">
+          <div className="bg-[#CDE6E7] rounded-lg p-4 sm:p-6 md:p-8 shadow-md space-y-3 text-left">
             <p className="font-semibold">Nome: {dados.nome}</p>
             <p className="font-semibold">E-mail: {dados.email}</p>
             <p className="font-semibold">CPF: {dados.cpf}</p>
@@ -119,4 +126,5 @@ function Perfil() {
 }
 
 export default Perfil;
+
 
