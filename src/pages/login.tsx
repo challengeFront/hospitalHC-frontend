@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Voz from "../components/voz";
+import ModoIdoso from "../components/modoidoso";
 
 interface LoginFormData {
   email: string;
@@ -8,7 +10,7 @@ interface LoginFormData {
 
 function Login() {
   const navigate = useNavigate();
-  const aqua = "#0F8E89"; // cor verde-água (ajuste conforme Figma)
+  const aqua = "#0F8E89"; // cor verde-água (do Figma)
 
   const {
     register,
@@ -23,18 +25,21 @@ function Login() {
 
   return (
     <div className="min-h-screen bg-[#CDE6E7] flex flex-col">
-      {/* Barra superior sem faixa branca */}
+      {/* Barra superior */}
       <header className="flex items-center justify-between px-3 sm:px-4 md:px-6 py-3 sm:py-4">
         <div className="flex items-center gap-3">
-          <img src="/NOVO-LOGO-HC.png" alt="Logo HC" className="h-12 sm:h-16 md:h-20" />
+          <img
+            src="/NOVO-LOGO-HC.png"
+            alt="Logo HC"
+            className="h-12 sm:h-16 md:h-20"
+          />
         </div>
 
         <nav className="flex gap-3 sm:gap-5 text-sm sm:text-base md:text-lg font-semibold">
-          <button className="hover:text-blue-700">🧓 Modo Idoso</button>
-          <button className="hover:text-blue-700">🎤 Assistente de voz</button>
-          <button className="hover:text-blue-700" onClick={() => navigate("/integrantes")}>
-            👥 Integrantes
-          </button>
+          {/* Botão funcional do Modo Idoso */}
+          <ModoIdoso />
+          {/* Botão do Assistente de Voz */}
+          <Voz />
         </nav>
       </header>
 
@@ -66,19 +71,25 @@ function Login() {
           <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4">
             {/* E-mail */}
             <div>
-              <label className="block text-left text-gray-700 mb-1 text-sm sm:text-base">E-mail</label>
+              <label className="block text-left text-gray-700 mb-1 text-sm sm:text-base">
+                E-mail
+              </label>
               <input
                 type="email"
                 placeholder="Digite seu e-mail"
                 {...register("email", { required: "O e-mail é obrigatório" })}
                 className="w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
               />
-              {errors.email && <p className="text-red-600 text-sm">{errors.email.message}</p>}
+              {errors.email && (
+                <p className="text-red-600 text-sm">{errors.email.message}</p>
+              )}
             </div>
 
             {/* Senha */}
             <div>
-              <label className="block text-left text-gray-700 mb-1 text-sm sm:text-base">Senha</label>
+              <label className="block text-left text-gray-700 mb-1 text-sm sm:text-base">
+                Senha
+              </label>
               <input
                 type="password"
                 placeholder="Digite sua senha"
@@ -88,7 +99,9 @@ function Login() {
                 })}
                 className="w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
               />
-              {errors.senha && <p className="text-red-600 text-sm">{errors.senha.message}</p>}
+              {errors.senha && (
+                <p className="text-red-600 text-sm">{errors.senha.message}</p>
+              )}
             </div>
 
             <div className="flex justify-end mb-2">
@@ -109,7 +122,7 @@ function Login() {
               <button
                 type="button"
                 onClick={() => navigate("/cadastro")}
-                className="flex-1 bg-green-600 text-white py-2 sm:py-3 rounded-lg font-semibold hover:bg-green-700 transition text-sm sm:text-base"
+                className="flex-1 bg-[#0F8E89] text-white py-2 sm:py-3 rounded-lg font-semibold hover:bg-[#0c6e6a] transition text-sm sm:text-base"
               >
                 Cadastrar
               </button>
@@ -122,6 +135,8 @@ function Login() {
 }
 
 export default Login;
+
+
 
 
 

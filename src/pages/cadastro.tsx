@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Voz from "../components/voz";
+import ModoIdoso from "../components/modoidoso";
 
 interface FormData {
   nome: string;
@@ -34,14 +36,8 @@ function Cadastro() {
 
         {/* Ações */}
         <nav className="flex flex-wrap justify-center gap-4 text-base md:text-lg font-semibold">
-          <button className="hover:text-blue-700">🧓 Modo Idoso</button>
-          <button className="hover:text-blue-700">🎤 Assistente de voz</button>
-          <button
-            className="hover:text-blue-700"
-            onClick={() => navigate("/integrantes")}
-          >
-            👥 Integrantes
-          </button>
+          <ModoIdoso />
+          <Voz />
         </nav>
       </header>
 
@@ -168,6 +164,8 @@ function Cadastro() {
 }
 
 export default Cadastro;
+
+
 
 
 

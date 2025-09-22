@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import Voz from "../components/voz";
+import ModoIdoso from "../components/modoidoso";
 
 function Informacoes() {
   const navigate = useNavigate();
@@ -49,18 +51,19 @@ function Informacoes() {
 
         {/* EXTRAS */}
         <div className="mt-8 flex flex-col gap-6 items-center">
-          <button className="flex flex-col items-center">
-            <span className="text-2xl md:text-3xl">🎤</span>
-            <span className="text-[11px] sm:text-xs md:text-sm">Assistente de voz</span>
-          </button>
-          <button className="flex flex-col items-center" onClick={() => navigate("/integrantes")}>
-            <span className="text-2xl md:text-3xl">👥</span>
-            <span className="text-[11px] sm:text-xs md:text-sm">Integrantes</span>
-          </button>
-          <button className="text-center">
-            <div className="text-2xl md:text-3xl">🧓</div>
-            <p className="text-[11px] sm:text-xs md:text-sm">Modo Idoso</p>
-          </button>
+          <div className="mt-10 flex flex-col gap-6 items-center">
+            <Voz />
+            <button
+              className="flex flex-col items-center"
+              onClick={() => navigate("/integrantes")}
+            >
+              <span className="text-3xl">👥</span>
+              <span className="text-sm">Integrantes</span>
+            </button>
+          </div>
+
+          {/* Botão funcional do Modo Idoso */}
+          <ModoIdoso />
         </div>
       </aside>
 
@@ -90,7 +93,9 @@ function Informacoes() {
 
         {/* CONTEÚDO CENTRAL */}
         <section className="max-w-4xl mx-auto">
-          <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-6 text-[#004A80]">Informações</h1>
+          <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-6 text-[#004A80]">
+            Informações
+          </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {infos.map((info, i) => (
               <div
@@ -110,6 +115,7 @@ function Informacoes() {
 }
 
 export default Informacoes;
+
 
 
 

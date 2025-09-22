@@ -1,4 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom";
+import Voz from "../components/voz";
+import ModoIdoso from "../components/modoidoso";
 
 function Perfil() {
   const dados = {
@@ -54,18 +56,16 @@ function Perfil() {
         </nav>
 
         <div className="mt-8 flex flex-col gap-6 items-center">
-          <button className="flex flex-col items-center">
-            <span className="text-2xl md:text-3xl">🎤</span>
-            <span className="text-[11px] sm:text-xs md:text-sm">Assistente de voz</span>
-          </button>
-          <button onClick={() => navigate("/integrantes")} className="flex flex-col items-center">
-            <span className="text-2xl md:text-3xl">👥</span>
-            <span className="text-[11px] sm:text-xs md:text-sm">Integrantes</span>
-          </button>
-           <button className="text-center">
-              <div className="text-2xl md:text-3xl">🧓</div>
-              <p className="text-[11px] sm:text-xs md:text-sm">Modo Idoso</p>
+          <div className="mt-10 flex flex-col gap-6 items-center">
+            <Voz />
+            <button className="flex flex-col items-center" onClick={() => navigate("/integrantes")}>
+              <span className="text-3xl">👥</span>
+              <span className="text-sm">Integrantes</span>
             </button>
+          </div>
+
+          {/* Botão funcional do modo idoso */}
+          <ModoIdoso />
         </div>
       </aside>
 
@@ -83,10 +83,7 @@ function Perfil() {
           </div>
 
           <div className="hidden xs:flex gap-3 sm:gap-6">
-            <button className="text-center">
-              <div className="text-2xl md:text-3xl">🧓</div>
-              <p className="text-[11px] sm:text-xs md:text-sm">Modo Idoso</p>
-            </button>
+            <ModoIdoso />
             <button onClick={() => navigate("/perfil")} className="text-center">
               <div className="text-2xl md:text-3xl">👤</div>
               <p className="text-[11px] sm:text-xs md:text-sm">Perfil</p>
@@ -99,18 +96,18 @@ function Perfil() {
         </header>
 
         {/* Perfil */}
-        <section className="max-w-3xl mx-auto text-center">
+        <section className="max-w-4xl mx-auto text-center">
           <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-6 text-[#004A80]">Perfil</h1>
 
-          <div className="bg-[#CDE6E7] rounded-lg p-4 sm:p-6 md:p-8 shadow-md space-y-3 text-left">
-            <p className="font-semibold">Nome: {dados.nome}</p>
-            <p className="font-semibold">E-mail: {dados.email}</p>
-            <p className="font-semibold">CPF: {dados.cpf}</p>
-            <p className="font-semibold">Telefone: {dados.telefone}</p>
-            <p className="font-semibold">Data de Nascimento: {dados.nascimento}</p>
-            <p className="font-semibold">Endereço: {dados.endereco}</p>
-            <p className="font-semibold">Cartão SUS: {dados.cartaoSUS}</p>
-            <p className="font-semibold">Convênio: {dados.convenio}</p>
+          <div className="bg-[#CDE6E7] rounded-lg p-4 sm:p-6 md:p-8 shadow-md grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+            <p className="font-semibold">👤 Nome: {dados.nome}</p>
+            <p className="font-semibold">📧 E-mail: {dados.email}</p>
+            <p className="font-semibold">🆔 CPF: {dados.cpf}</p>
+            <p className="font-semibold">📞 Telefone: {dados.telefone}</p>
+            <p className="font-semibold">🎂 Nascimento: {dados.nascimento}</p>
+            <p className="font-semibold">🏠 Endereço: {dados.endereco}</p>
+            <p className="font-semibold">💳 Cartão SUS: {dados.cartaoSUS}</p>
+            <p className="font-semibold">🏥 Convênio: {dados.convenio}</p>
           </div>
 
           <button
@@ -126,5 +123,6 @@ function Perfil() {
 }
 
 export default Perfil;
+
 
 

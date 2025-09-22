@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import Voz from "../components/voz";
+import ModoIdoso from "../components/modoidoso";
 
 function PlanoSaude() {
   const navigate = useNavigate();
@@ -51,18 +53,19 @@ function PlanoSaude() {
         </nav>
 
         <div className="mt-8 flex flex-col gap-6 items-center">
-          <button className="flex flex-col items-center">
-            <span className="text-2xl md:text-3xl">🎤</span>
-            <span className="text-[11px] sm:text-xs md:text-sm">Assistente de voz</span>
-          </button>
-          <button className="flex flex-col items-center" onClick={() => navigate("/integrantes")}>
-            <span className="text-2xl md:text-3xl">👥</span>
-            <span className="text-[11px] sm:text-xs md:text-sm">Integrantes</span>
-          </button>
-          <button className="text-center">
-            <div className="text-2xl md:text-3xl">🧓</div>
-            <p className="text-[11px] sm:text-xs md:text-sm">Modo Idoso</p>
-          </button>
+          <div className="mt-10 flex flex-col gap-6 items-center">
+            <Voz />
+            <button
+              className="flex flex-col items-center"
+              onClick={() => navigate("/integrantes")}
+            >
+              <span className="text-3xl">👥</span>
+              <span className="text-sm">Integrantes</span>
+            </button>
+          </div>
+
+          {/* Botão funcional do modo idoso */}
+          <ModoIdoso />
         </div>
       </aside>
 
@@ -80,6 +83,7 @@ function PlanoSaude() {
           </div>
 
           <div className="hidden xs:flex gap-3 sm:gap-6">
+            <ModoIdoso />
             <button className="text-center" onClick={() => navigate("/perfil")}>
               <div className="text-2xl md:text-3xl">👤</div>
               <p className="text-[11px] sm:text-xs md:text-sm">Perfil</p>
@@ -92,7 +96,7 @@ function PlanoSaude() {
         </header>
 
         {/* Plano de Saúde */}
-        <section className="max-w-3xl mx-auto">
+        <section className="max-w-4xl mx-auto">
           <div className="flex flex-col items-center mb-6">
             <span className="text-4xl sm:text-5xl">💊</span>
             <h1 className="text-lg sm:text-xl md:text-2xl font-bold mt-2 text-[#004A80]">
@@ -100,15 +104,15 @@ function PlanoSaude() {
             </h1>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8 space-y-3 border border-gray-200 text-sm sm:text-base md:text-lg">
-            <p><b>Razão Social:</b> {dadosPlano.razaoSocial}</p>
-            <p><b>Plano:</b> {dadosPlano.nomePlano}</p>
-            <p><b>CNPJ:</b> {dadosPlano.cnpj}</p>
-            <p><b>Contato:</b> {dadosPlano.contato}</p>
-            <p><b>Telefone:</b> {dadosPlano.telefone}</p>
-            <p><b>Início de Vigência:</b> {dadosPlano.inicio}</p>
-            <p><b>Fim de Vigência:</b> {dadosPlano.fim}</p>
-            <p><b>Nº da Carteira:</b> {dadosPlano.numeroCarteira}</p>
+          <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8 border border-gray-200 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm sm:text-base md:text-lg">
+            <p><b>🏢 Razão Social:</b> {dadosPlano.razaoSocial}</p>
+            <p><b>📋 Plano:</b> {dadosPlano.nomePlano}</p>
+            <p><b>🔢 CNPJ:</b> {dadosPlano.cnpj}</p>
+            <p><b>☎️ Contato:</b> {dadosPlano.contato}</p>
+            <p><b>📞 Telefone:</b> {dadosPlano.telefone}</p>
+            <p><b>📅 Início:</b> {dadosPlano.inicio}</p>
+            <p><b>📅 Fim:</b> {dadosPlano.fim}</p>
+            <p><b>💳 Nº Carteira:</b> {dadosPlano.numeroCarteira}</p>
           </div>
         </section>
       </main>
@@ -117,6 +121,7 @@ function PlanoSaude() {
 }
 
 export default PlanoSaude;
+
 
 
 

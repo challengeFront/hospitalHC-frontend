@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import Voz from "../components/voz";
+import ModoIdoso from "../components/modoidoso";
 
 function Integrantes() {
   const navigate = useNavigate();
@@ -45,19 +47,21 @@ function Integrantes() {
           <button className="bg-[#0F8E89] py-2">INTEGRANTES</button>
         </nav>
 
+        {/* Extras */}
         <div className="mt-8 flex flex-col gap-6 items-center">
-          <button className="flex flex-col items-center">
-            <span className="text-2xl md:text-3xl">🎤</span>
-            <span className="text-[11px] sm:text-xs md:text-sm">Assistente de voz</span>
-          </button>
-          <button className="flex flex-col items-center bg-[#0F8E89] px-3 py-2 rounded-md">
-            <span className="text-2xl md:text-3xl">👥</span>
-            <span className="text-[11px] sm:text-xs md:text-sm">Integrantes</span>
-          </button>
-          <button className="text-center">
-            <div className="text-2xl md:text-3xl">🧓</div>
-            <p className="text-[11px] sm:text-xs md:text-sm">Modo Idoso</p>
-          </button>
+          <div className="mt-10 flex flex-col gap-6 items-center">
+            <Voz />
+            <button
+              className="flex flex-col items-center"
+              onClick={() => navigate("/integrantes")}
+            >
+              <span className="text-3xl">👥</span>
+              <span className="text-sm">Integrantes</span>
+            </button>
+          </div>
+
+          {/* Botão funcional do Modo Idoso */}
+          <ModoIdoso />
         </div>
       </aside>
 
@@ -88,7 +92,9 @@ function Integrantes() {
 
         {/* Lista de Integrantes */}
         <section className="max-w-3xl mx-auto">
-          <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-6 text-[#004A80]">Integrantes</h1>
+          <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-6 text-[#004A80]">
+            Integrantes
+          </h1>
 
           <ul className="space-y-3 text-sm sm:text-base md:text-lg">
             {integrantes.map((pessoa, i) => (
@@ -109,6 +115,7 @@ function Integrantes() {
 }
 
 export default Integrantes;
+
 
 
 

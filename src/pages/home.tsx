@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import Voz from "../components/voz";
+import ModoIdoso from "../components/modoidoso";
 
 function Home() {
   const navigate = useNavigate();
@@ -34,22 +36,22 @@ function Home() {
           <button className="hover:bg-[#0F8E89] py-2" onClick={() => navigate("/teleconsulta")}>
             TELECONSULTA
           </button>
-         
         </nav>
 
         <div className="mt-8 flex flex-col gap-6 items-center">
-          <button className="flex flex-col items-center">
-            <span className="text-2xl md:text-3xl">🎤</span>
-            <span className="text-[11px] sm:text-xs md:text-sm">Assistente de voz</span>
-          </button>
-          <button className="flex flex-col items-center" onClick={() => navigate("/integrantes")}>
-            <span className="text-2xl md:text-3xl">👥</span>
-            <span className="text-[11px] sm:text-xs md:text-sm">Integrantes</span>
-          </button>
-          <button className="text-center">
-            <div className="text-2xl md:text-3xl">🧓</div>
-            <p className="text-[11px] sm:text-xs md:text-sm">Modo Idoso</p>
-          </button>
+          <div className="mt-10 flex flex-col gap-6 items-center">
+            <Voz />
+            <button
+              className="flex flex-col items-center"
+              onClick={() => navigate("/integrantes")}
+            >
+              <span className="text-3xl">👥</span>
+              <span className="text-sm">Integrantes</span>
+            </button>
+          </div>
+
+          {/* Botão do Modo Idoso funcional */}
+          <ModoIdoso />
         </div>
       </aside>
 
@@ -104,7 +106,9 @@ function Home() {
               className="bg-white shadow-md rounded-2xl px-6 sm:px-10 py-6 sm:py-8 text-center hover:shadow-xl border-4 border-[#CDE6E7] w-52 sm:w-60 h-40 sm:h-44 flex flex-col justify-center"
             >
               <div className="text-4xl sm:text-5xl mb-2">💬</div>
-              <span className="font-bold text-[#0F8E89] text-base sm:text-lg">Assistente pessoal</span>
+              <span className="font-bold text-[#0F8E89] text-base sm:text-lg">
+                Assistente pessoal
+              </span>
             </button>
 
             <button
@@ -112,7 +116,9 @@ function Home() {
               className="bg-white shadow-md rounded-2xl px-6 sm:px-10 py-6 sm:py-8 text-center hover:shadow-xl border-4 border-[#CDE6E7] w-52 sm:w-60 h-40 sm:h-44 flex flex-col justify-center"
             >
               <div className="text-4xl sm:text-5xl mb-2">📑</div>
-              <span className="font-bold text-[#0F8E89] text-base sm:text-lg">Resultados de exames</span>
+              <span className="font-bold text-[#0F8E89] text-base sm:text-lg">
+                Resultados de exames
+              </span>
             </button>
           </div>
 
@@ -131,6 +137,7 @@ function Home() {
 }
 
 export default Home;
+
 
 
 

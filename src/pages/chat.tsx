@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Voz from "../components/voz";
+import ModoIdoso from "../components/modoidoso";
 
 function Chat() {
   const navigate = useNavigate();
@@ -39,20 +40,17 @@ function Chat() {
           </button>
         </nav>
 
-       
         <div className="mt-8 flex flex-col gap-6 items-center">
-         <div className="mt-10 flex flex-col gap-6 items-center">
+          <div className="mt-10 flex flex-col gap-6 items-center">
             <Voz />
-          <button className="flex flex-col items-center" onClick={() => navigate("/integrantes")}>
-            <span className="text-3xl">👥</span>
-            <span className="text-sm">Integrantes</span>
-          </button>
-          </div>
-       
-          <button className="text-center">
-              <div className="text-2xl md:text-3xl">🧓</div>
-              <p className="text-[11px] sm:text-xs md:text-sm">Modo Idoso</p>
+            <button className="flex flex-col items-center" onClick={() => navigate("/integrantes")}>
+              <span className="text-3xl">👥</span>
+              <span className="text-sm">Integrantes</span>
             </button>
+          </div>
+
+          {/* Botão do Modo Idoso */}
+          <ModoIdoso />
         </div>
       </aside>
 
@@ -160,6 +158,7 @@ function Chat() {
 }
 
 export default Chat;
+
 
 
 

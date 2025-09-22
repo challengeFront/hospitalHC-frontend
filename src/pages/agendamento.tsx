@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Voz from "../components/voz";
+import ModoIdoso from "../components/modoidoso";
 
 function Agendamento() {
   const navigate = useNavigate();
@@ -35,9 +36,8 @@ function Agendamento() {
   const horariosDisponiveis = ["08:00", "09:30", "11:00", "14:00", "15:30", "17:00"];
 
   return (
-    // mantém layout em linha SEMPRE (menu à esquerda)
     <div className="min-h-screen flex bg-white">
-      {/* MENU LATERAL – sempre à esquerda, com largura responsiva */}
+      {/* MENU LATERAL */}
       <aside
         className="
           w-40 sm:w-48 md:w-64 shrink-0
@@ -70,23 +70,19 @@ function Agendamento() {
           </button>
         </nav>
 
-        <div className="mt-8 flex flex-col gap-6 items-center">
-         <div className="mt-10 flex flex-col gap-6 items-center">
-            <Voz />
+        <div className="mt-10 flex flex-col gap-6 items-center">
+          <Voz />
+
+          <ModoIdoso />
+
           <button className="flex flex-col items-center" onClick={() => navigate("/integrantes")}>
             <span className="text-3xl">👥</span>
             <span className="text-sm">Integrantes</span>
           </button>
-          </div>
-       
-          <button className="text-center">
-              <div className="text-2xl md:text-3xl">🧓</div>
-              <p className="text-[11px] sm:text-xs md:text-sm">Modo Idoso</p>
-            </button>
         </div>
       </aside>
 
-      {/* CONTEÚDO – ocupa o restante, sem criar rolagem horizontal */}
+      {/* CONTEÚDO */}
       <main className="flex-1 min-w-0 bg-[#F6FAFB] p-3 sm:p-4 md:p-6 overflow-x-hidden">
         {/* Barra superior com pesquisa */}
         <header className="flex justify-between items-center gap-3 sm:gap-4 mb-6 px-3 sm:px-4 py-3 border-b bg-white rounded">
@@ -100,7 +96,6 @@ function Agendamento() {
           </div>
 
           <div className="hidden xs:flex gap-3 sm:gap-6">
-            
             <button onClick={() => navigate("/perfil")} className="text-center">
               <div className="text-2xl md:text-3xl">👤</div>
               <p className="text-[11px] sm:text-xs md:text-sm">Perfil</p>
@@ -226,6 +221,8 @@ function Agendamento() {
 }
 
 export default Agendamento;
+
+
 
 
 

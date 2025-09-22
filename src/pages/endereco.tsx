@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import Voz from "../components/voz";
+import ModoIdoso from "../components/modoidoso";
 
 function Endereco() {
   const navigate = useNavigate();
@@ -41,18 +43,19 @@ function Endereco() {
 
         {/* Extras */}
         <div className="mt-8 flex flex-col gap-6 items-center">
-          <button className="flex flex-col items-center">
-            <span className="text-2xl md:text-3xl">🎤</span>
-            <span className="text-[11px] sm:text-xs md:text-sm">Assistente de voz</span>
-          </button>
-          <button className="flex flex-col items-center" onClick={() => navigate("/integrantes")}>
-            <span className="text-2xl md:text-3xl">👥</span>
-            <span className="text-[11px] sm:text-xs md:text-sm">Integrantes</span>
-          </button>
-          <button className="text-center">
-            <div className="text-2xl md:text-3xl">🧓</div>
-            <p className="text-[11px] sm:text-xs md:text-sm">Modo Idoso</p>
-          </button>
+          <div className="mt-10 flex flex-col gap-6 items-center">
+            <Voz />
+            <button
+              className="flex flex-col items-center"
+              onClick={() => navigate("/integrantes")}
+            >
+              <span className="text-3xl">👥</span>
+              <span className="text-sm">Integrantes</span>
+            </button>
+          </div>
+
+          {/* Botão do Modo Idoso */}
+          <ModoIdoso />
         </div>
       </aside>
 
@@ -83,7 +86,9 @@ function Endereco() {
 
         {/* Área central */}
         <section className="max-w-4xl mx-auto">
-          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-[#0F8E89] mb-6">Endereço</h2>
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-[#0F8E89] mb-6">
+            Endereço
+          </h2>
 
           <iframe
             className="w-full h-72 sm:h-80 md:h-96 rounded-lg shadow"
@@ -103,6 +108,7 @@ function Endereco() {
 }
 
 export default Endereco;
+
 
 
 

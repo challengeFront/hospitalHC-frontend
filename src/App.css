@@ -40,3 +40,34 @@
 .read-the-docs {
   color: #888;
 }
+
+
+/* 🌟 Estilos do Modo Idoso */
+.modo-idoso {
+  background-color: #fdfdfd !important; /* fundo mais claro */
+  color: #111 !important; /* contraste */
+}
+
+/* Altera todos os textos */
+.modo-idoso * {
+  font-size: 1.25rem !important;   /* aumenta tamanho */
+  line-height: 1.8 !important;     /* aumenta espaçamento */
+}
+
+/* Inputs e botões maiores */
+.modo-idoso input,
+.modo-idoso textarea,
+.modo-idoso button {
+  font-size: 1.2rem !important;
+  padding: 1rem !important;
+}
+
+/* Títulos destacados */
+.modo-idoso h1,
+.modo-idoso h2,
+.modo-idoso h3 {
+  font-size: 2rem !important;
+  font-weight: bold !important;
+}
+
+

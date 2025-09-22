@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Voz from "../components/voz";
+import ModoIdoso from "../components/modoidoso";
 
 function Teleconsulta() {
   const navigate = useNavigate();
@@ -22,17 +24,20 @@ function Teleconsulta() {
     },
   ]);
 
-  // Estado para guardar consultas canceladas
   const [canceladas, setCanceladas] = useState<number[]>([]);
+  const [mensagem, setMensagem] = useState<string | null>(null);
 
   useEffect(() => {
-    console.log("Consultas canceladas:", canceladas);
-  }, [canceladas]);
+    if (mensagem) {
+      const timer = setTimeout(() => setMensagem(null), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [mensagem]);
 
-  // Função de cancelamento
   const cancelarConsulta = (id: number) => {
     setCanceladas([...canceladas, id]);
     setConsultas(consultas.filter((c) => c.id !== id));
+    setMensagem("❌ Consulta cancelada com sucesso!");
   };
 
   return (
@@ -69,18 +74,17 @@ function Teleconsulta() {
         </nav>
 
         <div className="mt-8 flex flex-col gap-6 items-center">
-          <button className="flex flex-col items-center">
-            <span className="text-2xl md:text-3xl">🎤</span>
-            <span className="text-[11px] sm:text-xs md:text-sm">Assistente de voz</span>
-          </button>
-          <button className="flex flex-col items-center" onClick={() => navigate("/integrantes")}>
-            <span className="text-2xl md:text-3xl">👥</span>
-            <span className="text-[11px] sm:text-xs md:text-sm">Integrantes</span>
-          </button>
-          <button className="text-center">
-            <div className="text-2xl md:text-3xl">🧓</div>
-            <p className="text-[11px] sm:text-xs md:text-sm">Modo Idoso</p>
-          </button>
+          <div className="mt-10 flex flex-col gap-6 items-center">
+            <Voz />
+            <button
+              className="flex flex-col items-center"
+              onClick={() => navigate("/integrantes")}
+            >
+              <span className="text-3xl">👥</span>
+              <span className="text-sm">Integrantes</span>
+            </button>
+          </div>
+          <ModoIdoso />
         </div>
       </aside>
 
@@ -98,6 +102,7 @@ function Teleconsulta() {
           </div>
 
           <div className="hidden xs:flex gap-3 sm:gap-6">
+            <ModoIdoso />
             <button onClick={() => navigate("/perfil")} className="text-center">
               <div className="text-2xl md:text-3xl">👤</div>
               <p className="text-[11px] sm:text-xs md:text-sm">Perfil</p>
@@ -109,14 +114,26 @@ function Teleconsulta() {
           </div>
         </header>
 
+        {/* Mensagem temporária */}
+        {mensagem && (
+          <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-lg text-center font-semibold">
+            {mensagem}
+          </div>
+        )}
+
         {/* Teleconsultas */}
         <section className="max-w-4xl mx-auto">
-          <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-6 text-[#004A80]">Teleconsulta</h1>
+          <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-6 text-[#004A80]">
+            Teleconsulta
+          </h1>
 
           {consultas.length > 0 ? (
             <div className="space-y-6">
               {consultas.map((c) => (
-                <div key={c.id} className="bg-white border border-gray-200 rounded-xl shadow-md p-4 sm:p-6">
+                <div
+                  key={c.id}
+                  className="bg-white border border-gray-200 rounded-xl shadow-md p-4 sm:p-6"
+                >
                   <p><b>Dia:</b> {c.dia}</p>
                   <p><b>Horário:</b> {c.horario}</p>
                   <p><b>Médico:</b> {c.medico}</p>
@@ -146,6 +163,7 @@ function Teleconsulta() {
 }
 
 export default Teleconsulta;
+
 
 ''
 
