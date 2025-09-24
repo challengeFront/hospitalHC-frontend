@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import Voz from "../components/voz";
 import ModoIdoso from "../components/modoidoso";
 
@@ -23,6 +24,25 @@ function Login() {
     navigate("/home");
   };
 
+  // Estado do modal de redefinição
+  const [showReset, setShowReset] = useState(false);
+  const [resetEmail, setResetEmail] = useState("");
+  const [mensagem, setMensagem] = useState("");
+
+  const handleResetSubmit = () => {
+    if (!resetEmail) {
+      setMensagem("⚠️ Digite um e-mail válido.");
+      return;
+    }
+    console.log("Pedido de redefinição para:", resetEmail);
+    setMensagem("✅ Se este e-mail estiver cadastrado, enviaremos instruções de redefinição.");
+    setResetEmail("");
+    setTimeout(() => {
+      setShowReset(false);
+      setMensagem("");
+    }, 3000);
+  };
+
   return (
     <div className="min-h-screen bg-[#CDE6E7] flex flex-col">
       {/* Barra superior */}
@@ -36,9 +56,7 @@ function Login() {
         </div>
 
         <nav className="flex gap-3 sm:gap-5 text-sm sm:text-base md:text-lg font-semibold">
-          {/* Botão funcional do Modo Idoso */}
           <ModoIdoso />
-          {/* Botão do Assistente de Voz */}
           <Voz />
         </nav>
       </header>
@@ -104,10 +122,14 @@ function Login() {
               )}
             </div>
 
+            {/* Esqueci minha senha */}
             <div className="flex justify-end mb-2">
-              <a href="#" className="text-sm text-blue-600 hover:underline">
-                Esqueci minha senha
-              </a>
+              <span
+                onClick={() => setShowReset(true)}
+                className="text-sm text-blue-600 hover:underline cursor-pointer"
+              >
+                Esqueci minha Senha
+              </span>
             </div>
 
             {/* Botões lado a lado */}
@@ -130,12 +152,40 @@ function Login() {
           </form>
         </div>
       </main>
+
+      {/* Modal de redefinição */}
+      {showReset && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-96 text-center">
+            <h2 className="text-lg font-bold mb-4 text-[#004A80]">Redefinir senha</h2>
+            <input
+              type="email"
+              value={resetEmail}
+              onChange={(e) => setResetEmail(e.target.value)}
+              placeholder="Digite seu e-mail"
+              className="w-full p-2 border rounded mb-3"
+            />
+            <button
+              onClick={handleResetSubmit}
+              className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full mb-2"
+            >
+              Enviar link de recuperação
+            </button>
+            {mensagem && <p className="text-sm text-gray-700 mt-2">{mensagem}</p>}
+            <button
+              className="mt-3 text-gray-600 hover:underline"
+              onClick={() => setShowReset(false)}
+            >
+              Cancelar
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
 export default Login;
-
 
 
 
