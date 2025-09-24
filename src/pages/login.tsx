@@ -128,7 +128,7 @@ function Login() {
                 onClick={() => setShowReset(true)}
                 className="text-sm text-blue-600 hover:underline cursor-pointer"
               >
-                Esqueci minha senha
+                Esqueci minha Senha
               </span>
             </div>
 
