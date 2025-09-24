@@ -46,16 +46,7 @@ print
 ## 🔗 Links
 - **Repositório no GitHub:** [Clique aqui](https://github.com/seu-repositorio)  
 - **Vídeo de Apresentação (YouTube):** [Clique aqui](https://youtube.com/seu-video)  
-
----
-
-## 📹 Vídeo de Demonstração
-O vídeo de até **3 minutos** apresenta:
-- As telas do sistema (login, cadastro, perfil, teleconsulta, agendamento, FAQ, contato e integrantes)  
-- Principais recursos (Modo Idoso, Assistente de Voz, formulários com validação)  
-- Layout responsivo, usabilidade e acessibilidade  
-
----
+-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
 
 
