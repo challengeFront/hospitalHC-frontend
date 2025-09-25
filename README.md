@@ -1,7 +1,7 @@
 # 🏥 Hospital HC - Front-End
 
 Projeto desenvolvido para a disciplina **Front-End Design Engineering** (FIAP) – 2º semestre.  
-Este repositório contém a implementação do front-end do sistema **Hospital HC**, incluindo telas de login, cadastro, perfil, teleconsulta, agendamento, FAQ e contato, com foco em acessibilidade (Modo Idoso e Assistente de Voz).
+Este repositório contém a implementação do front-end do sistema **Hospital HC**, incluindo telas de login, cadastro, perfil, teleconsulta, agendamento,Informações, Plano de saúde,Assistente virtual, Endereço FAQ e contato, com foco em acessibilidade (Modo Idoso e Assistente de Voz).
 
 ---
 
@@ -44,7 +44,7 @@ print
 ---
 
 ## 🔗 Links
-- **Repositório no GitHub:** [Clique aqui](https://github.com/seu-repositorio)  
+- **Repositório no GitHub:** [Clique aqui](https://github.com/challengeFront/hospitalHC-frontend)  
 - **Vídeo de Apresentação (YouTube):** [Clique aqui](https://youtube.com/seu-video)  
 
 ---
