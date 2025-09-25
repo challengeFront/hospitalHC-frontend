@@ -1,9 +1,17 @@
 import { useNavigate, useLocation } from "react-router-dom";
+import { useState } from "react";
 import Voz from "../components/voz";
 import ModoIdoso from "../components/modoidoso";
 
 function Perfil() {
-  const dados = {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const isActive = (path: string) =>
+    location.pathname === path ? "bg-[#0F8E89]" : "hover:bg-[#0F8E89]";
+
+  // Estado dos dados do perfil
+  const [dados, setDados] = useState({
     nome: "Conceição de Jesus",
     email: "conceicaojesus@gmail.com",
     cpf: "123.654.789-0",
@@ -12,13 +20,19 @@ function Perfil() {
     endereco: "Rua das Flores, 123 - São Paulo/SP",
     cartaoSUS: "898 0012 3456 7890",
     convenio: "Unimed - Nacional Especial",
+  });
+
+  // Estado de edição
+  const [editando, setEditando] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDados({ ...dados, [e.target.name]: e.target.value });
   };
 
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const isActive = (path: string) =>
-    location.pathname === path ? "bg-[#0F8E89]" : "hover:bg-[#0F8E89]";
+  const handleSalvar = () => {
+    alert("Perfil atualizado com sucesso!");
+    setEditando(false);
+  };
 
   return (
     <div className="min-h-screen flex bg-white">
@@ -63,8 +77,6 @@ function Perfil() {
               <span className="text-sm">Integrantes</span>
             </button>
           </div>
-
-          {/* Botão funcional do modo idoso */}
           <ModoIdoso />
         </div>
       </aside>
@@ -100,22 +112,58 @@ function Perfil() {
           <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-6 text-[#004A80]">Perfil</h1>
 
           <div className="bg-[#CDE6E7] rounded-lg p-4 sm:p-6 md:p-8 shadow-md grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
-            <p className="font-semibold">👤 Nome: {dados.nome}</p>
-            <p className="font-semibold">📧 E-mail: {dados.email}</p>
-            <p className="font-semibold">🆔 CPF: {dados.cpf}</p>
-            <p className="font-semibold">📞 Telefone: {dados.telefone}</p>
-            <p className="font-semibold">🎂 Nascimento: {dados.nascimento}</p>
-            <p className="font-semibold">🏠 Endereço: {dados.endereco}</p>
-            <p className="font-semibold">💳 Cartão SUS: {dados.cartaoSUS}</p>
-            <p className="font-semibold">🏥 Convênio: {dados.convenio}</p>
+            {editando ? (
+              <>
+                {Object.entries(dados).map(([key, value]) => (
+                  <div key={key} className="flex flex-col">
+                    <label className="font-semibold mb-1 capitalize">{key}</label>
+                    <input
+                      type="text"
+                      name={key}
+                      value={value}
+                      onChange={handleChange}
+                      className="border border-gray-300 rounded px-3 py-2"
+                    />
+                  </div>
+                ))}
+              </>
+            ) : (
+              <>
+                <p className="font-semibold">👤 Nome: {dados.nome}</p>
+                <p className="font-semibold">📧 E-mail: {dados.email}</p>
+                <p className="font-semibold">🆔 CPF: {dados.cpf}</p>
+                <p className="font-semibold">📞 Telefone: {dados.telefone}</p>
+                <p className="font-semibold">🎂 Nascimento: {dados.nascimento}</p>
+                <p className="font-semibold">🏠 Endereço: {dados.endereco}</p>
+                <p className="font-semibold">💳 Cartão SUS: {dados.cartaoSUS}</p>
+                <p className="font-semibold">🏥 Convênio: {dados.convenio}</p>
+              </>
+            )}
           </div>
 
-          <button
-            onClick={() => alert("Função de editar ainda não implementada")}
-            className="mt-6 bg-[#0F8E89] text-white font-semibold px-6 py-3 rounded-full hover:bg-[#0c6e6a] transition"
-          >
-            Editar perfil
-          </button>
+          {editando ? (
+            <div className="mt-6 flex gap-4 justify-center">
+              <button
+                onClick={handleSalvar}
+                className="bg-[#0F8E89] text-white font-semibold px-6 py-3 rounded-full hover:bg-[#0c6e6a] transition"
+              >
+                Salvar
+              </button>
+              <button
+                onClick={() => setEditando(false)}
+                className="bg-gray-400 text-white font-semibold px-6 py-3 rounded-full hover:bg-gray-500 transition"
+              >
+                Cancelar
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={() => setEditando(true)}
+              className="mt-6 bg-[#0F8E89] text-white font-semibold px-6 py-3 rounded-full hover:bg-[#0c6e6a] transition"
+            >
+              Editar perfil
+            </button>
+          )}
         </section>
       </main>
     </div>
@@ -123,6 +171,7 @@ function Perfil() {
 }
 
 export default Perfil;
+
 
 
 
