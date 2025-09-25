@@ -16,12 +16,15 @@ function Contato() {
   const {
     register,
     handleSubmit,
+    reset, // 👈 IMPORTANTE: adiciona o reset
     formState: { errors },
   } = useForm<ContatoFormData>();
 
   const onSubmit = (data: ContatoFormData) => {
     console.log("Mensagem enviada:", data);
     alert("Mensagem enviada com sucesso!");
+
+    reset(); // 👈 aqui ele limpa todos os campos depois de enviar
   };
 
   return (
