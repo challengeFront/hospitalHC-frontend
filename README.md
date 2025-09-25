@@ -1,69 +1,69 @@
-# React + TypeScript + Vite
+# 🏥 Hospital HC - Front-End
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto desenvolvido para a disciplina **Front-End Design Engineering** (FIAP) – 2º semestre.  
+Este repositório contém a implementação do front-end do sistema **Hospital HC**, incluindo telas de login, cadastro, perfil, teleconsulta, agendamento, FAQ e contato, com foco em acessibilidade (Modo Idoso e Assistente de Voz).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias Utilizadas
+- [React](https://react.dev/) com TypeScript
+- [Vite](https://vitejs.dev/) para build e execução
+- [Tailwind CSS](https://tailwindcss.com/) para estilização
+- [React Router DOM](https://reactrouter.com/) para navegação
+- [React Hook Form](https://react-hook-form.com/) para validação de formulários
+- Ícones, emojis e imagens para acessibilidade e usabilidade
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 👩‍💻 Integrantes
+- **Julia Queiroz de Oliveira** – RM 561583 – 1TDSPJ  
+- **Maria Luiza Alves de Aquino** – RM 561802 – 1TDSPJ  
+- **Juliana da Silva Stigliani** – RM 561171 – 1TDSPJ  
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🖼️ Imagens do Projeto
+### Tela de Login
+![Login](./assets/login.png)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Tela de Perfil
+![Perfil](./assets/perfil.png)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Tela de Teleconsulta
+![Teleconsulta](./assets/teleconsulta.png)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Tela de Integrantes
+![Integrantes](./assets/integrantes.png)
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+*(adicione prints das principais telas na pasta `/assets` e atualize os nomes dos arquivos acima conforme necessário)*
+
+---
+
+## 📂 Estrutura de Pastas
+print
+---
+
+## 🔗 Links
+- **Repositório no GitHub:** [Clique aqui](https://github.com/seu-repositorio)  
+- **Vídeo de Apresentação (YouTube):** [Clique aqui](https://youtube.com/seu-video)  
+
+---
+
+## 📹 Vídeo de Demonstração
+O vídeo de até **3 minutos** apresenta:
+- As telas do sistema (login, cadastro, perfil, teleconsulta, agendamento, FAQ, contato e integrantes)  
+- Principais recursos (Modo Idoso, Assistente de Voz, formulários com validação)  
+- Layout responsivo, usabilidade e acessibilidade  
+
+---
+
+
+
+
+
+
+
+
+
+
+ 

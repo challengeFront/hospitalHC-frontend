@@ -139,15 +139,12 @@ function Teleconsulta() {
                   <p><b>Médico:</b> {c.medico}</p>
                   <p><b>Especialidade:</b> {c.especialidade}</p>
 
-                  <div className="flex gap-3 mt-4">
+                  <div className="flex mt-4">
                     <button
                       onClick={() => cancelarConsulta(c.id)}
                       className="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition text-sm sm:text-base"
                     >
                       Cancelar consulta
-                    </button>
-                    <button className="bg-[#0F8E89] text-white px-4 py-2 rounded-full hover:bg-[#0c6e6a] transition text-sm sm:text-base">
-                      Acessar consulta
                     </button>
                   </div>
                 </div>
@@ -163,6 +160,7 @@ function Teleconsulta() {
 }
 
 export default Teleconsulta;
+
 
 
 ''
