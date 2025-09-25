@@ -16,8 +16,8 @@ Este repositório contém a implementação do front-end do sistema **Hospital H
 ---
 
 ## 👩‍💻 Integrantes
-- **Julia Queiroz de Oliveira** – RM 561583 – 1TDSPJ  
-- **Maria Luiza Alves de Aquino** – RM 561802 – 1TDSPJ  
+- **Julia Queiroz de Oliveira** – RM 561583 – 1TDSPI  
+- **Maria Luiza Alves de Aquino** – RM 561802 – 1TDSPI
 - **Juliana da Silva Stigliani** – RM 561171 – 1TDSPJ  
 
 ---
