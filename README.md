@@ -37,12 +37,21 @@ Este repositório contém a implementação do front-end do sistema **Hospital H
 ### Tela de Integrantes
 ![Integrantes](./src/assets/integrantes.png)
 
+### Tela de FAQ
+![faq](./src/assets/faq.png)
+
+### Tela de Contato
+![contato](./src/assets/contato.png)
+
+### Tela de Agendamento
+![agendamento](./src/assets/agendamento.png)
+
 
 
 ---
 
 ## 📂 Estrutura de Pastas
-print
+![estrutura](./src/assets/estrutura.png)
 ---
 
 ## 🔗 Links
