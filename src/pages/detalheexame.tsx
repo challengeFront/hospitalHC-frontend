@@ -37,8 +37,11 @@ function DetalheExame() {
           sticky top-0 h-screen overflow-y-auto
         "
       >
-        <div className="flex items-center gap-3 mb-6">
-          <img src="/NOVO-LOGO-HC.png" alt="Logo HC" className="h-14 sm:h-16 md:h-20" />
+         <div className="flex items-center gap-3 mb-6">
+         
+          <button  onClick={() => navigate("/home")}>
+            <img src="/NOVO-LOGO-HC.png" alt="Logo HC" className="h-14 sm:h-16 md:h-20" />
+          </button>
         </div>
 
         <nav className="flex flex-col gap-2 w-full text-center font-semibold text-xs sm:text-sm md:text-lg">
