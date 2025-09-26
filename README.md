@@ -24,18 +24,20 @@ Este repositório contém a implementação do front-end do sistema **Hospital H
 
 ## 🖼️ Imagens do Projeto
 ### Tela de Login
-![Login](./assets/login.png)
+
+![Login](./src/assets/login.png)
+
 
 ### Tela de Perfil
-![Perfil](./assets/perfil.png)
+![Perfil](./src/assets/perfil.png)
 
 ### Tela de Teleconsulta
-![Teleconsulta](./assets/teleconsulta.png)
+![Teleconsulta](./src/assets/teleconsulta.png)
 
 ### Tela de Integrantes
-![Integrantes](./assets/integrantes.png)
+![Integrantes](./src/assets/integrantes.png)
 
-*(adicione prints das principais telas na pasta `/assets` e atualize os nomes dos arquivos acima conforme necessário)*
+
 
 ---
 
