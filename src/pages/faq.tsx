@@ -15,7 +15,7 @@ function FAQ() {
   const faqs = [
     {
       q: "Como marcar consulta SUS?",
-      a: "As marcações de consultas médicas para as diversas especialidades do Hospital das Clínicas são realizadas pelo Sistema CROSS – Central de Regulação de Ofertas de Serviços de Saúde, da Secretaria de Estado da Saúde de São Paulo. Orientamos que o paciente procure uma UBS, AMA ou AME próximo de sua residência para solicitar o agendamento, que será definido conforme a disponibilidade de vagas e critérios clínicos estabelecidos pela rede pública.",
+      a: "As marcações de consultas médicas para as diversas especialidades do Hospital das Clínicas são realizadas pelo Sistema CROSS – Central de Regulação de Ofertas de Serviços de Saúde, da Secretaria de Estado da Saúde de São Paulo. Orientamos que o paciente procure uma UBS, AMA ou AME próximo de sua residência para solicitar o agendamento.",
     },
     {
       q: "Solicitação de prontuário e laudo médico.",
