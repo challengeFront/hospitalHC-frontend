@@ -68,6 +68,17 @@ O vídeo de até **3 minutos** apresenta:
 
 ---
 
+# Objetivo da Solução  
+O código fonte do sistema tem como objetivo oferecer uma solução simples e 
+funcional para o gerenciamento de informações no contexto hospitalar. Ele permite o 
+cadastro de pacientes, prontuários e agendamentos, além de oferecer recursos de 
+acessibilidade e interação com o usuário. 
+O escopo está limitado às operações básicas de registro, consulta, 
+atualização e exclusão de dados referentes a pacientes e agendamentos, 
+garantindo uma interface interativa via console. 
+
+---
+
 
 
 
