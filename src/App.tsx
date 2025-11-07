@@ -12,15 +12,13 @@ import Teleconsulta from "./pages/teleconsulta";
 import Agendamento from "./pages/agendamento";
 import Integrantes from "./pages/integrantes";
 import Plano from "./pages/plano";
-import Informacoes from "./pages/informacoes";
+
 import ResultadosExames from "./pages/exames";
 import Contato from "./pages/contato";
 import DetalheExame from "./pages/detalheexame";
 
-/* === Import das novas páginas conectadas à API === */
 import Pacientes from "./pages/pacientes";
 import Medicos from "./pages/medicos";
-import Especialidades from "./pages/especialidades";
 import Agendamentos from "./pages/agendamentos";
 import Historicos from "./pages/historicos";
 import Prontuarios from "./pages/prontuarios";
@@ -41,7 +39,7 @@ function App() {
         <Route path="/agendamento" element={<Agendamento />} />
         <Route path="/integrantes" element={<Integrantes />} />
         <Route path="/plano" element={<Plano />} />
-        <Route path="/informacoes" element={<Informacoes />} />
+       
         <Route path="/resultadosexames" element={<ResultadosExames />} />
         <Route path="/contato" element={<Contato />} />
 
