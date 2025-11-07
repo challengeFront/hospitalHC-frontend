@@ -57,9 +57,10 @@ Este repositório contém a implementação do front-end do sistema **Hospital H
 ## 🔗 Links
 - **Repositório no GitHub:** [Clique aqui](https://github.com/challengeFront/hospitalHC-frontend)  
 - **Vídeo de Apresentação (YouTube):** [Clique aqui](https://youtu.be/e3rMbY_H3xY) 
-- https://youtu.be/e3rMbY_H3xY 
+
 
 ---
+
 
 ## 📹 Vídeo de Demonstração
 O vídeo de até **3 minutos** apresenta:
