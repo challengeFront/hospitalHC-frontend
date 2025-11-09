@@ -3,6 +3,18 @@ import { useState } from "react";
 import Voz from "../components/voz";
 import ModoIdoso from "../components/modoidoso";
 
+// Tipagem explícita para os dados do perfil
+type PerfilDados = {
+  nome: string;
+  email: string;
+  cpf: string;
+  telefone: string;
+  nascimento: string;
+  endereco: string;
+  cartaoSUS: string;
+  convenio: string;
+};
+
 function Perfil() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -10,8 +22,8 @@ function Perfil() {
   const isActive = (path: string) =>
     location.pathname === path ? "bg-[#0F8E89]" : "hover:bg-[#0F8E89]";
 
-  // Estado dos dados do perfil
-  const [dados, setDados] = useState({
+  // Estado dos dados do perfil com tipagem
+  const [dados, setDados] = useState<PerfilDados>({
     nome: "Conceição de Jesus",
     email: "conceicaojesus@gmail.com",
     cpf: "123.654.789-0",
@@ -26,7 +38,9 @@ function Perfil() {
   const [editando, setEditando] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDados({ ...dados, [e.target.name]: e.target.value });
+    const name = e.target.name as keyof PerfilDados;
+    const value = e.target.value;
+    setDados((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSalvar = () => {
@@ -117,13 +131,13 @@ function Perfil() {
           <div className="bg-[#CDE6E7] rounded-lg p-4 sm:p-6 md:p-8 shadow-md grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
             {editando ? (
               <>
-                {Object.entries(dados).map(([key, value]) => (
+                {(Object.keys(dados) as (keyof PerfilDados)[]).map((key) => (
                   <div key={key} className="flex flex-col">
-                    <label className="font-semibold mb-1 capitalize">{key}</label>
+                    <label className="font-semibold mb-1 capitalize">{String(key)}</label>
                     <input
                       type="text"
-                      name={key}
-                      value={value}
+                      name={String(key)}
+                      value={dados[key]}
                       onChange={handleChange}
                       className="border border-gray-300 rounded px-3 py-2"
                     />

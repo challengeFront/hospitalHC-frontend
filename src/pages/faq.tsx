@@ -4,7 +4,7 @@ import Voz from "../components/voz";
 import ModoIdoso from "../components/modoidoso";
 
 function FAQ() {
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(null); // inicializado como null
   const navigate = useNavigate();
 
   const toggle = (i: number) => {
